@@ -1,7 +1,7 @@
 <?php
 include_once dirname(__FILE__) . '/class-itunes.php';
 
-class Search extends Itunes
+class WP_Applink_Search extends WP_Applink_Itunes
 {
 
   //検索のベースとなるURI
@@ -27,7 +27,7 @@ class Search extends Itunes
       foreach($result as $item){
         $mode = $this->mode($item);
 
-        $html .= '<div class="' . Itunes::APPNAME . ' ' . $prefix . $mode . '">';
+        $html .= '<div class="' . self::APPNAME . ' ' . $prefix . $mode . '">';
         $html .= '<div class="' . $prefix . 'icon">';
         $html .= '<a href="' . $this->link($item) . '" target="itune_store">';
         $html .= '<img src="' . $this->icon($item) . '" alt="' . $this->name($item) . '">';

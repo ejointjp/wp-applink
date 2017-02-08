@@ -28,7 +28,7 @@ License: GPL2
 include_once dirname(__FILE__) . '/class/class-lookup.php';
 include_once dirname(__FILE__) . '/class/class-search.php';
 
-class Wp_applink
+class WP_Applink
 {
   //PHGトークン
   const PHG_TOKEN = '11l64V';
@@ -55,7 +55,7 @@ class Wp_applink
     add_shortcode('applink', array($this, 'wpal_shortcode'));
 
     //Class Lookupのインスタンスを生成
-    $this->lookup = new Lookup();
+    $this->lookup = new WP_Applink_Lookup();
   }
 
   //プラグイン有効時に実行
@@ -177,7 +177,7 @@ class Wp_applink
 
   public function wpal_ajax_search(){
 
-    $search = new Search();
+    $search = new WP_Applink_Search();
 
     if(isset($_GET)){
       $search->add_query_param('term', esc_html(urlencode($_GET['term'])));
@@ -219,4 +219,4 @@ class Wp_applink
   }
 }
 
-$wpal = new Wp_applink();
+$wpal = new WP_Applink();

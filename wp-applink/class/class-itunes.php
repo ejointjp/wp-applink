@@ -1,5 +1,5 @@
 <?php
-abstract class Itunes
+abstract class WP_Applink_Itunes
 {
 
   //検索のベースとなるURIを返す関数は必須
@@ -113,7 +113,7 @@ abstract class Itunes
   }
 
   protected function prefix(){
-    return Itunes::APPNAME . '-';
+    return self::APPNAME . '-';
   }
 
   protected function screenshot_urls($obj){
