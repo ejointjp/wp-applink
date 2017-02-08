@@ -4,7 +4,7 @@ Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ An answer to that question.
 4. Setting Sample.
 
 == Changelog ==
+
+= 0.1.1 =
+* Change class name.
 
 = 0.1.0 =
 * Initial release.

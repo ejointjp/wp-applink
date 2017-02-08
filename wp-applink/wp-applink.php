@@ -4,7 +4,7 @@ Plugin Name: WP Applink
 Plugin URI: http://e-joint.jp/268/
 Description: It is a WordPress plugin that generates iTunes affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
 Author: e-JOINT.jp
-Version: 0.1.0
+Version: 0.1.1
 Author URI: http://e-joint.jp
 License: GPL2
 */
@@ -36,6 +36,7 @@ class WP_Applink
   public $lookup;
   //プラグインの設定値
   private $options;
+  const VERSION = '0.1.1';
 
   public function __construct(){
 
@@ -158,8 +159,8 @@ class WP_Applink
   }
 
   public function add_admin_js_css(){
-    wp_enqueue_style('wpal', plugins_url('css/metabox.min.css', __FILE__), array(), '0.1');
-    wp_enqueue_script('wpal', plugins_url('js/wp-applink.min.js', __FILE__), array('jquery'), '0.2');
+    wp_enqueue_style('wpal', plugins_url('css/metabox.min.css', __FILE__), array(), self::VERSION);
+    wp_enqueue_script('wpal', plugins_url('js/wp-applink.min.js', __FILE__), array('jquery'), self::VERSION);
   }
 
   //スタイルシートの追加
@@ -167,7 +168,7 @@ class WP_Applink
     $this->options = get_option('wpal-setting');
 
     if(!isset($this->options['nocss']) || (isset($this->options['nocss']) && !$this->options['nocss'])){
-      wp_enqueue_style('wpal', plugins_url('css/wp-applink.min.css', __FILE__), array(), '0.1');
+      wp_enqueue_style('wpal', plugins_url('css/wp-applink.min.css', __FILE__), array(), self::VERSION);
     }
   }
 
