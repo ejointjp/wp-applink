@@ -1,0 +1,144 @@
+@import 'bourbon';
+
+$wpal-background: #f8f8f8 !default;
+$wpal-padding: em(15) !default;
+$wpal-breakpoint: rem(750) !default;
+$wpal-icon-width: em(60) !default;
+$wpal-icon-width-large: em(90) !default;
+$wpal-btn-background: #333 !default;
+$wpal-btn-hover-background: #50AA8D !default;
+
+.wpal{
+  $class: #{&};
+  background: $wpal-background;
+  @include clearfix();
+  @include margin(em(30) null);
+  @include padding($wpal-padding);
+  font-size: 16px;
+
+  a{
+    text-decoration: none;
+  }
+
+  &-icon{
+    float: left;
+    max-height: $wpal-icon-width;
+    text-align: center;
+    width: $wpal-icon-width;
+
+  }
+
+  &-software{
+
+    #{$class}-icon{
+      border-radius: 20%;
+      overflow: hidden;
+    }
+  }
+
+  &-content{
+    margin-left: $wpal-padding + $wpal-icon-width;
+  }
+
+  &-title{
+    font-size: em(16);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: rem(3);
+
+  }
+
+  &-datas{
+    font-size: em(15);
+    color: #777;
+    line-height: 1.4;
+  }
+
+  &-data{
+    display: inline-block;
+    margin-right: 1em;
+  }
+
+
+  &-btn{
+    background: $wpal-btn-background;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    line-height: 1;
+    margin-top: em(4);
+    padding: em(8) em(18) em(10);
+    transition: 0.2s;
+
+    &:hover{
+      color: white;
+      background: $wpal-btn-hover-background;
+    }
+
+  }
+
+  &-screenshots{
+    clear: both;
+    border-top: 1px solid white;
+    margin: em(20) -1% 1%;
+
+    figcaption{
+      font-weight: bold;
+      font-size: em(14);
+      margin-top: em(10);
+      margin-bottom: em(4);
+      color: #666;
+      margin-left: 1%;
+      margin-right: 1%;
+    }
+
+    img{
+
+      width: 31%;
+      margin: 1%;
+    }
+  }
+
+  &-message {
+    font-size: 12px;
+    margin: 30px 0;
+    padding: 7px;
+    background: #f2f2f2;
+    color: #666;
+  }
+
+
+  @media screen and (min-width: $wpal-breakpoint){
+
+    &-icon{
+      max-height: $wpal-icon-width-large;
+      width: $wpal-icon-width-large;
+    }
+
+    &-content{
+      margin-left: $wpal-padding + $wpal-icon-width-large;
+    }
+
+    &-title{
+      font-size: em(18);
+    }
+
+    &-datas{
+      font-size: em(16);
+    }
+
+    &-screenshots{
+      margin: em(20) -0.5% 0;
+
+      figcaption{
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+      }
+
+      img{
+        width: 19%;
+        margin: 0.5%;
+      }
+    }
+  }
+}
