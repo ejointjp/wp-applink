@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Applink\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2017-02-08 09:01+0900\n"
+"POT-Creation-Date: 2017-02-10 12:21+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: e-JOINT.jp <mail@e-joint.jp>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;"
-"_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;"
-"__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class/class-itunes.php:208
+#: class/class-itunes.php:257
 msgid "Free"
 msgstr "無料"
 
-#: class/class-itunes.php:217
+#: class/class-itunes.php:266
 msgid "iOS Universal"
 msgstr "iOSユニバーサル"
 
-#: class/class-lookup.php:30
+#: class/class-lookup.php:20
 msgid "Link not found."
 msgstr "リンクが見つかりませんでした｡"
 
-#: class/class-search.php:76
+#: class/class-search.php:38
 msgid "Shortcode"
 msgstr "ショートコード"
 
-#: class/class-search.php:77
+#: class/class-search.php:39
 msgid "HTML Tag"
 msgstr "HTMLタグ"
 
@@ -100,37 +100,61 @@ msgstr "検索数"
 msgid "Search"
 msgstr "検索"
 
-#: wp-applink.php:95
+#: wp-applink.php:119
 msgid "PHG Token"
 msgstr "PHGトークン"
 
-#: wp-applink.php:96
+#: wp-applink.php:120
 msgid "Do not use default CSS"
 msgstr "デフォルトのCSSを使わない"
 
-#: wp-applink.php:97
+#: wp-applink.php:121
 msgid "Country"
 msgstr "国"
 
-#: wp-applink.php:112
+#: wp-applink.php:136
 msgid "Please enter a token."
 msgstr "トークンを入力してください｡"
 
-#: wp-applink.php:134
+#: wp-applink.php:158
 msgid "Japan(Default)"
 msgstr "日本（デフォルト）"
 
-#: wp-applink.php:135
+#: wp-applink.php:159
 msgid "United States"
 msgstr "米国"
 
-#: wp-applink.php:169
+#: wp-applink.php:193
 msgid "Search result"
 msgstr "検索結果"
 
-#: wp-applink.php:169
+#: wp-applink.php:193
 msgid "items."
 msgstr "件"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Applink"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://e-joint.jp/works/wp-applink/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"It is a WordPress plugin that generates iTunes PHG affiliate links such as "
+"iPhone, iPad, Mac apps and music, movies etc."
+msgstr ""
+"iPhone, iPad, Macアプリや音楽, 映画などのiTunes PHGリンクを作成する"
+"WordPressプラグインです｡"
+
+#. Author of the plugin/theme
+msgid "e-JOINT.jp"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://e-joint.jp"
+msgstr ""
 
 #~ msgid "のリンクが見つかりませんでした"
 #~ msgstr "Link Not Found."

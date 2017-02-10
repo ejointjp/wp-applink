@@ -1,0 +1,151 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Applink\n"
+"POT-Creation-Date: 2017-02-10 12:19+0900\n"
+"PO-Revision-Date: 2017-02-10 12:19+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: wp-applink.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: class/class-itunes.php:257
+msgid "Free"
+msgstr ""
+
+#: class/class-itunes.php:266
+msgid "iOS Universal"
+msgstr ""
+
+#: class/class-lookup.php:20
+msgid "Link not found."
+msgstr ""
+
+#: class/class-search.php:38
+msgid "Shortcode"
+msgstr ""
+
+#: class/class-search.php:39
+msgid "HTML Tag"
+msgstr ""
+
+#: views/view-metabox.php:3
+msgid "iPhone App"
+msgstr ""
+
+#: views/view-metabox.php:4
+msgid "iPad App"
+msgstr ""
+
+#: views/view-metabox.php:5
+msgid "Mac App"
+msgstr ""
+
+#: views/view-metabox.php:6
+msgid "iBooks"
+msgstr ""
+
+#: views/view-metabox.php:7
+msgid "Music Track"
+msgstr ""
+
+#: views/view-metabox.php:8
+msgid "Music Album"
+msgstr ""
+
+#: views/view-metabox.php:9
+msgid "Music Video"
+msgstr ""
+
+#: views/view-metabox.php:10
+msgid "Movie"
+msgstr ""
+
+#: views/view-metabox.php:11
+msgid "Podcast"
+msgstr ""
+
+#: views/view-metabox.php:12
+msgid "Audiobook"
+msgstr ""
+
+#: views/view-metabox.php:20
+msgid "Keywords"
+msgstr ""
+
+#: views/view-metabox.php:34
+msgid "Screenshots"
+msgstr ""
+
+#: views/view-metabox.php:43
+msgid "Number of searches"
+msgstr ""
+
+#: views/view-metabox.php:58
+msgid "Search"
+msgstr ""
+
+#: wp-applink.php:119
+msgid "PHG Token"
+msgstr ""
+
+#: wp-applink.php:120
+msgid "Do not use default CSS"
+msgstr ""
+
+#: wp-applink.php:121
+msgid "Country"
+msgstr ""
+
+#: wp-applink.php:136
+msgid "Please enter a token."
+msgstr ""
+
+#: wp-applink.php:158
+msgid "Japan(Default)"
+msgstr ""
+
+#: wp-applink.php:159
+msgid "United States"
+msgstr ""
+
+#: wp-applink.php:193
+msgid "Search result"
+msgstr ""
+
+#: wp-applink.php:193
+msgid "items."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Applink"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://e-joint.jp/works/wp-applink/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"It is a WordPress plugin that generates iTunes PHG affiliate links such as "
+"iPhone, iPad, Mac apps and music, movies etc."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "e-JOINT.jp"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://e-joint.jp"
+msgstr ""

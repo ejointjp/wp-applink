@@ -1,14 +1,14 @@
 === WP Applink ===
 Contributors: ejointjp
-Donate link: 
+Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-It is a WordPress plugin that generates iTunes affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
+It is a WordPress plugin that generates iTunes PHG affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
 
 == Description ==
 
@@ -20,8 +20,11 @@ Applink displays icons, titles, categories, prices, compatible devices, link but
 
 Also, you can specify the number of screenshots and display it.
 
+Please see the plugin page for details.
 
-iPhone, iPad, Macのアプリや音楽、映画などiTunesのアフィリエイトリンクを生成するWordPressプラグインです｡
+[Plugin page](http://e-joint.jp/works/wp-applink/)
+
+iPhone, iPad, Macのアプリや音楽、映画などiTunes PHGのアフィリエイトリンクを生成するWordPressプラグインです｡
 
 記事作成画面でアプリを検索し､選択したアプリのアフィリエイトリンク（以下Applink）のショートコードまたはHTMLタグをそのまま貼り付けることができますので､非常に簡単です｡
 
@@ -29,18 +32,33 @@ Applinkにはアイコン､タイトル､カテゴリー､価格､対応デ�
 
 また､スクリーンショットの数も指定して表示させることができます｡
 
+詳しくはプラグインページをご覧ください｡
+
+[プラグインページ](http://e-joint.jp/works/wp-applink/)
+
+
 == Installation ==
 
-* Upload `wp-applink` folder to the /wp-content/plugins/ directory.
-* Activate the plugin through the Plugins menu in WordPress.
-* Simple setting on Applink's setting page.
-* By searching for an application in the Applink box displayed in the article creation screen (post or page) and pressing one of the "Shortcode" or "HTML tag" button, Applink's "Shortcode" or "HTML tag" will be pasted in the article.
+= From WordPress Dashboard =
+
+1. Upload `wp-applink` folder to the /wp-content/plugins/ directory.
+2. Activate the plugin through the Plugins menu in WordPress.
+3. Simple setting on Applink's setting page.
+4. By searching for an application in the Applink box displayed in the article creation screen (post or page) and pressing one of the "Shortcode" or "HTML tag" button, Applink's "Shortcode" or "HTML tag" will be pasted in the article.
+
+1. `wp-applink` フォルダを /wp-content/plugins/ ディレクトリにアップロードします｡
+2. WordPressのプラグインメニューからプラグインを有効化します｡
+3. Applinkの設定ページにて簡単な設定をします｡
+4. 記事作成画面（投稿または固定ページ）に表示されているApplinkのボックス内でアプリを検索し､「ショートコード」または「HTMLタグ」のボタンをクリックすると､Applinkを表示するためのショートコード､またはHTMLが記事入力欄にペーストされます｡
 
 == Frequently asked questions ==
 
-= A question that someone might have =
+If you have any questions or problems regarding WP Applink, please visit the following plugin page or support forum.
 
-An answer to that question.
+WP Applinkに関する疑問や問題がありましたら､以下のプラグインページまたはサポートフォーラムをご覧ください｡
+
+* [Plugin Page](http://e-joint.jp/works/wp-applink/)
+* [Support Forum](https://wordpress.org/support/plugin/wp-applink);
 
 == Screenshots ==
 
@@ -62,4 +80,3 @@ An answer to that question.
 
 
 == Arbitrary section 1 ==
-

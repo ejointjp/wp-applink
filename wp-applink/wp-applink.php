@@ -1,11 +1,13 @@
 <?php
 /*
 Plugin Name: WP Applink
-Plugin URI: http://e-joint.jp/268/
-Description: It is a WordPress plugin that generates iTunes affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
+Plugin URI: http://e-joint.jp/works/wp-applink/
+Description: It is a WordPress plugin that generates iTunes PHG affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
+Version: 0.1.2
 Author: e-JOINT.jp
-Version: 0.1.1
 Author URI: http://e-joint.jp
+Text Domain: wp-applink
+Domain Path: /languages
 License: GPL2
 */
 
@@ -36,7 +38,7 @@ class WP_Applink
   public $lookup;
   //プラグインの設定値
   private $options;
-  const VERSION = '0.1.1';
+  const VERSION = '0.1.2';
 
   public function __construct(){
 
@@ -44,7 +46,7 @@ class WP_Applink
       register_activation_hook(__FILE__, array($this, 'register_activation'));
     }
     //翻訳ファイルの読み込み
-    load_plugin_textdomain('wp-applink', false, basename(dirname(__FILE__)) . '/language');
+    load_plugin_textdomain('wp-applink', false, basename(dirname(__FILE__)) . '/languages');
 
     add_action('admin_menu', array($this, 'add_meta_box'));
     add_action('admin_menu', array($this, 'add_plugin_page'));
