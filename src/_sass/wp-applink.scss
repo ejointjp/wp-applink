@@ -67,7 +67,7 @@ $wpal-btn-hover-background: #50AA8D !default;
   &-btn{
     background: $wpal-btn-background;
     border-radius: 3px;
-    color: white;
+    color: white !important; // prevent default link color
     display: inline-block;
     line-height: 1;
     margin-top: em(4);
