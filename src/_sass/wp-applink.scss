@@ -20,6 +20,10 @@ $wpal-btn-hover-background: #50AA8D !default;
     text-decoration: none;
   }
 
+  p{
+    margin: 0 !important; // WordPress autop measures
+  }
+
   &-icon{
     float: left;
     max-height: $wpal-icon-width;
