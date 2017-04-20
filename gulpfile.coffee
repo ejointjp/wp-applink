@@ -24,7 +24,7 @@ pleeeseOptions =
     browsers: ['last 2 versions', 'android 4.1']
   minifier: false
   sourcemaps: false
-  sass: true
+  sass: false
   mqpacker: true
 
 
