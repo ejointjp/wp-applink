@@ -3,7 +3,6 @@ include_once dirname(__FILE__) . '/class-itunes.php';
 
 class WP_Applink_Lookup extends WP_Applink_Itunes
 {
-
   //検索のベースとなるURI
   public function base_uri(){
     return 'https://itunes.apple.com/lookup';
@@ -11,6 +10,13 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
 
   //Applinkを出力
   public function display_applink($param){
+
+    $search_query = $this->search_query();
+    $this->remove_query_param('at');
+    $cachename = $this->search_query();
+    $this->set_cachename($cachename);
+
+    $this->select_uri();
     $this->get_result();
     $app = $this->get_json()->results[0];
     //アプリがなければ警告メッセージを出力
@@ -21,8 +27,13 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
       return '<p class="' . $this->prefix() . 'message">' . $title . __('Link not found.', 'wp-applink') . ': (WP Applink)</p>';
     } else {
       //アプリがあればHTMLを出力
+
+      if($this->get_status() === 'API'){
+        $this->save_cache();
+      }
+
+      $this->enable_shortcode();
       return $this->applink_html($app);
     }
   }
-
 }

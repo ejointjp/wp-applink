@@ -17,7 +17,9 @@ abstract class WP_Applink_Itunes
 
   protected $cachename;
   // API or Cache
-  protected $mode = 'API';
+  protected $status = 'API';
+  // ショートコードによる出力かどうか
+  protected $is_shortcode = false;
 
   public function __construct(){
     $this->select_country();
@@ -37,6 +39,10 @@ abstract class WP_Applink_Itunes
   //検索用GETパラメータを追加
   public function add_query_param($key, $val){
     $this->query_array[$key] = $val;
+  }
+
+  public function remove_query_param($key){
+    unset($this->query_array[$key]);
   }
 
   //検索用クエリーストリングを出力
@@ -81,15 +87,15 @@ abstract class WP_Applink_Itunes
   }
 
   public function enable_cache_mode(){
-    $this->mode = 'Cache';
+    $this->status = 'Cache';
   }
 
-  public function get_mode(){
-    return $this->mode;
+  public function get_status(){
+    return $this->status;
   }
 
-  public function save_cache($name){
-    $cachename = $this->cachename_encode($name);
+  public function save_cache(){
+    $cachename = $this->get_cachename();
     return file_put_contents($cachename, $this->get_text());
   }
 
@@ -178,6 +184,11 @@ abstract class WP_Applink_Itunes
         $html .= '</figure>';
       }
       $html .= '</div>';
+
+      if($this->is_shortcode()){
+        $html .= '<!-- ' . $this->get_status() . '-->';
+      }
+
       $html .= "\n\n";
 
       return $html;
@@ -288,10 +299,6 @@ abstract class WP_Applink_Itunes
       $name[] = $obj->collectionName;
     }
 
-    // if(property_exists($obj, 'version')){
-    //   $name[] = $obj->version;
-    // }
-    //
     return implode($name, ' ');
   }
 
@@ -376,5 +383,13 @@ abstract class WP_Applink_Itunes
   //スクリーンショットの枚数などのオプションを追加するためのもの
   public function add_shortcode_options($key, $val){
     $this->shortcode_options[$key]= $val;
+  }
+
+  protected function enable_shortcode(){
+    $this->is_shortcode = true;
+  }
+
+  public function is_shortcode(){
+    return $this->is_shortcode;
   }
 }

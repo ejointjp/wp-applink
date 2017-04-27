@@ -201,11 +201,11 @@ class WP_Applink
       $search->select_uri();
       $search->get_result();
 
-      printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', 'wp-applink'), $search->search_result_count(), __('items.', 'wp-applink') ,$search->get_mode());
+      printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', 'wp-applink'), $search->search_result_count(), __('items.', 'wp-applink') ,$search->get_status());
       echo $search->search_result_html();
 
-      if($search->get_mode() === 'API'){
-        $search->save_cache($cachename);
+      if($search->get_status() === 'API'){
+        $search->save_cache();
       }
     }
     die();

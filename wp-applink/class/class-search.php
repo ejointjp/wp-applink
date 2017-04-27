@@ -24,7 +24,6 @@ class WP_Applink_Search extends WP_Applink_Itunes
     if($result){
 
       $html = '<div class="' . $prefix . 'wrapper">';
-
       foreach($result as $item){
         $mode = $this->mode($item);
 
@@ -36,8 +35,8 @@ class WP_Applink_Search extends WP_Applink_Itunes
         $html .= '</div>';
         $html .= '<div class="' . $prefix . 'title">' . $this->name($item) . '</div>';
 
-        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' .  rawurlencode($this->generate_shortcode($this->id($item), $this->name($item))) . '\')">' . __('Shortcode', 'wp-applink') . '</div>';
-        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' .  rawurlencode($this->applink_html($item)) . '\')">' . __('HTML Tag', 'wp-applink') . '</div>';
+        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->generate_shortcode($this->id($item), $this->name($item))) . '\')">' . __('Shortcode', 'wp-applink') . '</div>';
+        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->applink_html($item)) . '\')">' . __('HTML Tag', 'wp-applink') . '</div>';
 
         $html .= '</div>';
       }
