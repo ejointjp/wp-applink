@@ -59,7 +59,7 @@ abstract class WP_Applink_Itunes
     $this->json = $json;
   }
 
-  protected function get_json(){
+  public function get_json(){
     return $this->json;
   }
 
