@@ -11,14 +11,15 @@ class WP_Applink_Search extends WP_Applink_Itunes
 
   //検索結果の件数を取得
   public function search_result_count(){
-    $obj = $this->get_result();
-    return $obj->resultCount;
+    $json = $this->get_json();
+    return $json->resultCount;
   }
 
   //検索結果のHTMLを作成｡metabox内で使用される
   public function search_result_html(){
     $prefix = $this->prefix();
-    $result = $this->get_result()->results;
+    $json = $this->get_json();
+    $result = $json->results;
 
     if($result){
 

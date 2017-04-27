@@ -45,10 +45,11 @@ abstract class WP_Applink_Itunes
   }
 
   //検索結果のJSONを取得
-  protected function get_result(){
+  public function get_result(){
     $uri = $this->search_uri();
     if($json = file_get_contents($uri,true)){
       $obj = json_decode($json);
+      $this->set_json($obj);
       return $obj;
     }else{
       return false;
