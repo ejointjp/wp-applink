@@ -1,14 +1,15 @@
 .wpal {
   background: #f8f8f8;
-  margin-top: 1.875em;
-  margin-bottom: 1.875em;
-  padding: 0.9375em;
-  font-size: 16px;
+  border-radius: 3px;
+  font-size: 15px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding: 16px;
 }
 
 .wpal::after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 
@@ -22,9 +23,9 @@
 
 .wpal-icon {
   float: left;
-  max-height: 3.75em;
+  max-height: 60px;
   text-align: center;
-  width: 3.75em;
+  width: 60px;
 }
 
 .wpal-software .wpal-icon {
@@ -33,20 +34,19 @@
 }
 
 .wpal-content {
-  margin-left: 4.6875em;
+  margin-left: 76px;
 }
 
 .wpal-title {
-  font-size: 1em;
   font-weight: bold;
-  line-height: 1.2;
-  margin-bottom: 0.1875rem;
+  margin-bottom: 3px;
 }
 
 .wpal-datas {
-  font-size: 0.9375em;
+  font-size: 0.85em;
   color: #777;
   line-height: 1.4;
+  margin-bottom: 3px;
 }
 
 .wpal-data {
@@ -61,8 +61,9 @@
   display: inline-block;
   line-height: 1;
   margin-top: 0.25em;
-  padding: 0.5em 1.125em 0.625em;
+  padding: 0.5625em 1.125em 0.625em;
   transition: 0.2s;
+  font-size: 0.9em;
 }
 
 .wpal-btn:hover {
@@ -73,21 +74,18 @@
 .wpal-screenshots {
   clear: both;
   border-top: 1px solid white;
-  margin: 1.25em -1% 1%;
+  margin: 24px -1% 1%;
 }
 
 .wpal-screenshots figcaption {
   font-weight: bold;
-  font-size: 0.875em;
-  margin-top: 0.625em;
-  margin-bottom: 0.25em;
+  font-size: 0.85em;
+  margin: 12px 1% 8px;
   color: #666;
-  margin-left: 1%;
-  margin-right: 1%;
 }
 
 .wpal-screenshots img {
-  width: 31%;
+  width: 31.333%;
   margin: 1%;
 }
 
@@ -99,27 +97,23 @@
   color: #666;
 }
 
-@media screen and (min-width: 46.875rem) {
+@media screen and (min-width: 750px) {
+
+  .wpal {
+    font-size: 16px;
+  }
 
   .wpal-icon {
-    max-height: 5.625em;
-    width: 5.625em;
+    max-height: 88px;
+    width: 88px;
   }
 
   .wpal-content {
-    margin-left: 6.5625em;
-  }
-
-  .wpal-title {
-    font-size: 1.125em;
-  }
-
-  .wpal-datas {
-    font-size: 1em;
+    margin-left: 104px;
   }
 
   .wpal-screenshots {
-    margin: 1.25em -0.5% 0;
+    margin: 20px -0.5% 0;
   }
 
   .wpal-screenshots figcaption {
