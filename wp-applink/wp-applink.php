@@ -98,7 +98,7 @@ class WP_Applink
     $this->options = get_option( 'wpal-setting' );
 
     ?><div class="wrap">
-      <h2>WP Applink Shortcode</h2>
+      <h2>WP Applink</h2>
 
       <?php
 
