@@ -6,6 +6,8 @@ abstract class WP_Applink_Itunes
   abstract function base_uri();
 
   const APPNAME = 'wpal';
+  // 検索結果のJSON
+  protected $json = null;
   //検索クエリに使うための配列｡
   protected $query_array = array();
   //ショートコードのオプションに使うための配列
@@ -51,6 +53,14 @@ abstract class WP_Applink_Itunes
     }else{
       return false;
     }
+  }
+
+  protected function set_json($json){
+    $this->json = $json;
+  }
+
+  protected function get_json(){
+    return $this->json;
   }
 
   //ApplinkのHTMLを作成
