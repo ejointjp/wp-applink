@@ -31,6 +31,7 @@ include_once dirname(__FILE__) . '/class/class-lookup.php';
 include_once dirname(__FILE__) . '/class/class-search.php';
 
 define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('CACHE_DIR', MY_PLUGIN_DIR . 'cache/');
 
 class WP_Applink
 {
@@ -40,6 +41,7 @@ class WP_Applink
   public $lookup;
   //プラグインの設定値
   private $options;
+  // cacheフォルダ
   const VERSION = '0.1.3';
 
   public function __construct(){
@@ -189,15 +191,22 @@ class WP_Applink
       $search->add_query_param('media', esc_html($_GET['media']));
       $search->add_query_param('entity', esc_html($_GET['entity']));
       $search->add_query_param('limit', esc_html($_GET['limit']));
+
+      $cachename = $search->search_query();
+      $search->set_cachename($cachename);
+
       $search->add_query_param('at', esc_html($_GET['at']));
       $search->add_shortcode_options('screenshot', esc_html($_GET['screenshot']));
 
+      $search->select_uri();
       $search->get_result();
-      $cachename = $search->search_query();
-      $search->save_cache($cachename);
 
-      echo '<p>' . __('Search result', 'wp-applink') . ' <b>' . $search->search_result_count() . '</b> ' . __('items.', 'wp-applink') . '</p>';
+      printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', 'wp-applink'), $search->search_result_count(), __('items.', 'wp-applink') ,$search->get_mode());
       echo $search->search_result_html();
+
+      if($search->get_mode() === 'API'){
+        $search->save_cache($cachename);
+      }
     }
     die();
   }

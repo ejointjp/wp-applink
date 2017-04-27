@@ -12,6 +12,12 @@ abstract class WP_Applink_Itunes
   protected $query_array = array();
   //ショートコードのオプションに使うための配列
   protected $shortcode_options = array();
+  // jsonの取得先。$this->search_url() または $cachename が入る
+  protected $uri = null;
+
+  protected $cachename;
+  // API or Cache
+  protected $mode = 'API';
 
   public function __construct(){
     $this->select_country();
@@ -39,14 +45,14 @@ abstract class WP_Applink_Itunes
   }
 
   //検索URLを出力
-  protected function search_uri(){
+  public function search_uri(){
     $base_uri = $this->base_uri();
     return urldecode($base_uri . '?' . $this->search_query());
   }
 
   //検索結果のJSONを取得
   public function get_result(){
-    $uri = $this->search_uri();
+    $uri = $this->get_uri();
     if($json = file_get_contents($uri,true)){
       $this->set_text($json);
     }else{
@@ -66,10 +72,57 @@ abstract class WP_Applink_Itunes
     return $this->text;
   }
 
+  public function set_uri($uri){
+    $this->uri = $uri;
+  }
+
+  public function get_uri(){
+    return $this->uri;
+  }
+
+  public function enable_cache_mode(){
+    $this->mode = 'Cache';
+  }
+
+  public function get_mode(){
+    return $this->mode;
+  }
+
   public function save_cache($name){
-    $filename = MY_PLUGIN_DIR . 'cache/' . $name .  '.txt';
-    file_put_contents($filename, $this->get_text());
-    return $filename;
+    $cachename = $this->cachename_encode($name);
+    return file_put_contents($cachename, $this->get_text());
+  }
+
+  protected function cachename_encode($name){
+    $target = array('=', '&');
+    $replace = str_replace($target, '-', $name);
+    $return = CACHE_DIR . $replace . '.txt';
+    return $return;
+  }
+
+  public function set_cachename($name){
+    $cachename = $this->cachename_encode($name);
+    $this->cachename = $cachename;
+  }
+
+  public function get_cachename(){
+    return $this->cachename;
+  }
+
+  public function cache_exists(){
+    $cachename = $this->get_cachename();
+    $exists = file_exists($cachename);
+    if($exists) $this->enable_cache_mode();
+    return $exists;
+  }
+  // 検索結果のキャッシュがある場合、キャッシュのURI、なければAPIのURIを代入
+  public function select_uri(){
+    if($this->cache_exists()){
+      $this->set_uri($this->get_cachename());
+
+    } else {
+      $this->set_uri($this->search_uri());
+    }
   }
 
   //ApplinkのHTMLを作成
