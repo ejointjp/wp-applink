@@ -38,7 +38,7 @@ class WP_Applink
   public $lookup;
   //プラグインの設定値
   private $options;
-  const VERSION = '0.1.2';
+  const VERSION = '0.1.3';
 
   public function __construct(){
 

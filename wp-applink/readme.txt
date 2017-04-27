@@ -69,6 +69,9 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.1.3 =
+* update: wp-applink.css
+
 = 0.1.1 =
 * Change class name.
 
@@ -77,6 +80,11 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Upgrade notice ==
 
+= 0.1.3 =
 
+update stylesheet
+
+* wordpress autop measures
+* Fix to prevent the default style to button font color
 
 == Arbitrary section 1 ==
