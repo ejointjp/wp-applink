@@ -1,22 +1,47 @@
 {
   "name": "wp-applink",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "devDependencies": {
-    "coffee-script": "^1.12.5",
-    "gulp": "^3.9.1",
-    "gulp-cached": "^1.1.1",
-    "gulp-cssbeautify": "^0.1.3",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-pleeease": "^2.0.2",
-    "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^2.1.1",
-    "gulp-uglify": "^2.1.2"
-  },
+  "version": "0.1.3",
+  "description": "WordPress plugin that generates iTunes affiliate links such as iPhone, iPad, Mac apps and music, movies etc.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=production node webpack.config",
+    "start": "npm run watch",
+    "gulp": "gulp",
+    "gulp:clean": "gulp clean",
+    "webpack:watch": "webpack -d --watch --progress",
+    "webpack": "webpack -d --progress",
+    "webpack:build": "NODE_ENV=production webpack -p --progress",
+    "watch": "npm run webpack:watch",
+    "build": "run-s gulp:clean build"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "bourbon": "^4.3.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "css-loader": "^0.28.0",
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "path": "^0.12.7",
+    "pleeease-loader": "^1.0.0",
+    "sass-loader": "^6.0.3",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejointjp/wp-applink"
+  },
+  "keywords": [],
+  "author": "e-JOINT.jp",
+  "license": "GPLv2 or later",
+  "bugs": {
+    "url": "https://github.com/ejointjp/wp-applink/issues"
+  },
+  "homepage": "https://gitjub.io/ejointjp/wp-applink"
 }

@@ -1,4 +1,5 @@
-.clearfix:after, .wpal:after {
+.clearfix::after,
+.wpal::after {
   clear: both;
   content: "";
   display: table;
@@ -16,14 +17,17 @@ label {
   border-bottom: 1px solid white;
   padding: 13px 0 10px 0;
 }
+
 .wpal-wrapper {
   background: #f8f8f8;
   padding: 0 8px;
   margin-bottom: 160px;
 }
+
 .wpal-form {
   position: relative;
 }
+
 .wpal-term {
   border: 1px solid #ccc;
   height: 33px;
@@ -33,29 +37,35 @@ label {
   max-width: 100%;
   box-sizing: border-box;
 }
+
 .wpal-term:focus {
   border-color: #44A3CC;
   outline: none;
 }
+
 .wpal-submit {
   position: absolute;
   right: 0;
   bottom: 5px;
 }
+
 .wpal-result {
   margin-top: 7px;
   max-height: 260px;
   overflow-y: scroll;
   font-size: 13px;
 }
+
 .wpal-loader {
   display: none;
   text-align: center;
 }
+
 .wpal-loader path,
 .wpal-loader rect {
   fill: #ff6500;
 }
+
 .wpal-icon {
   float: left;
   width: 40px;
@@ -63,20 +73,25 @@ label {
   margin-right: 10px;
   margin-bottom: 3px;
 }
+
 .wpal-icon img {
   max-width: 100%;
 }
+
 .wpal-software .wpal-icon {
   border-radius: 20%;
   overflow: hidden;
 }
+
 .wpal-title {
   font-weight: bold;
   color: #333;
 }
+
 .wpal-btn.button {
   margin-right: 3px;
 }
+
 @media screen and (max-width: 480px) {
 
   .wpal-term {
@@ -84,3 +99,4 @@ label {
     margin-bottom: 5px;
   }
 }
+
