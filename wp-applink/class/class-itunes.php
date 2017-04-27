@@ -95,6 +95,8 @@ abstract class WP_Applink_Itunes
   }
 
   public function save_cache(){
+    if(!file_exists(CACHE_DIR)) mkdir(CACHE_DIR);
+
     $cachename = $this->get_cachename();
     return file_put_contents($cachename, $this->get_text());
   }
