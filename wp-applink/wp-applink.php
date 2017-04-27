@@ -198,8 +198,7 @@ class WP_Applink
       $search->add_query_param('at', esc_html($_GET['at']));
       $search->add_shortcode_options('screenshot', esc_html($_GET['screenshot']));
 
-      $search->select_uri();
-      $search->get_result();
+      $search->setup_data();
 
       printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', 'wp-applink'), $search->search_result_count(), __('items.', 'wp-applink') ,$search->get_status());
       echo $search->search_result_html();

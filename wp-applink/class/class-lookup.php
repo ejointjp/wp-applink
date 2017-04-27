@@ -16,8 +16,8 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
     $cachename = $this->search_query();
     $this->set_cachename($cachename);
 
-    $this->select_uri();
-    $this->get_result();
+    $this->setup_data();
+
     $app = $this->get_json()->results[0];
     //アプリがなければ警告メッセージを出力
     if(!$app){
@@ -27,7 +27,6 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
       return '<p class="' . $this->prefix() . 'message">' . $title . __('Link not found.', 'wp-applink') . ': (WP Applink)</p>';
     } else {
       //アプリがあればHTMLを出力
-
       if($this->get_status() === 'API'){
         $this->save_cache();
       }

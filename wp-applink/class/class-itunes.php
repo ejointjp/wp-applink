@@ -121,6 +121,7 @@ abstract class WP_Applink_Itunes
     if($exists) $this->enable_cache_mode();
     return $exists;
   }
+
   // 検索結果のキャッシュがある場合、キャッシュのURI、なければAPIのURIを代入
   public function select_uri(){
     if($this->cache_exists()){
@@ -129,6 +130,29 @@ abstract class WP_Applink_Itunes
     } else {
       $this->set_uri($this->search_uri());
     }
+  }
+
+  public function delete_cache(){
+    date_default_timezone_set('Asia/Tokyo');
+    //削除期限
+    $expire = strtotime('1 minutes ago');
+    $cachefiles = scandir(CACHE_DIR);
+
+    foreach($cachefiles as $val){
+      $file = CACHE_DIR . $val;
+      if(!is_file($file)) continue;
+      $mod = filemtime($file);
+      if($mod < $expire){
+        //chmod($file, 0666);
+        unlink($file);
+      }
+    }
+  }
+
+  public function setup_data(){
+    $this->delete_cache();
+    $this->select_uri();
+    $this->get_result();
   }
 
   //ApplinkのHTMLを作成
