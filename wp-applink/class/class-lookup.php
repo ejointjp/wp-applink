@@ -11,7 +11,7 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
 
   //Applinkを出力
   public function display_applink($param){
-    $app = $this->get_result_json()->results[0];
+    $app = $this->get_result()->results[0];
     //アプリがなければ警告メッセージを出力
     if(!$app){
       $title = $param['title'];
