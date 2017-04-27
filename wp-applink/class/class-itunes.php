@@ -134,19 +134,23 @@ abstract class WP_Applink_Itunes
     }
   }
 
-  public function delete_cache(){
+  public static function delete_cache(){
     date_default_timezone_set('Asia/Tokyo');
     //削除期限
-    $expire = strtotime('1 minutes ago');
-    $cachefiles = scandir(CACHE_DIR);
+    $limit = get_option('wpal-setting')['cache'];
 
-    foreach($cachefiles as $val){
-      $file = CACHE_DIR . $val;
-      if(!is_file($file)) continue;
-      $mod = filemtime($file);
-      if($mod < $expire){
-        //chmod($file, 0666);
-        unlink($file);
+    if($limit !== 'indefinitely'){
+      $expire = strtotime($limit);
+      $cachefiles = scandir(CACHE_DIR);
+
+      foreach($cachefiles as $val){
+        $file = CACHE_DIR . $val;
+        if(!is_file($file)) continue;
+        $mod = filemtime($file);
+        if($mod < $expire){
+          //chmod($file, 0666);
+          unlink($file);
+        }
       }
     }
   }

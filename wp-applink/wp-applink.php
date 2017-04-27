@@ -72,6 +72,8 @@ class WP_Applink
     if(!$this->options['token']){
       add_option('wpal-setting', array('token' => self::PHG_TOKEN));
     }
+
+    add_option('wpal-setting', array('cache' => '1 week'));
   }
 
   //投稿ページと固定ページにmetaboxを表示
@@ -123,6 +125,7 @@ class WP_Applink
     add_settings_field('token', __('PHG Token', 'wp-applink'), array( $this, 'token_callback' ), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('nocss', __('Do not use default CSS', 'wp-applink'), array( $this, 'nocss_callback' ), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('country', __('Country', 'wp-applink'), array( $this, 'country_callback' ), 'wpal-setting', 'wpal-setting-section-id');
+    add_settings_field('cache', __('Cache limit', 'wp-applink'), array( $this, 'cache_callback' ), 'wpal-setting', 'wpal-setting-section-id');
   }
 
   public function sanitize( $input ){
@@ -132,17 +135,15 @@ class WP_Applink
 
     $new_input['nocss'] = $input['nocss'];
     $new_input['country'] = esc_attr($input['country']);
+    $new_input['cache'] = esc_attr($input['cache']);
 
-    // メッセージがある場合値を調整
     if( isset( $input['token'] ) && trim( $input['token'] ) !== '' ) {
-        $new_input['token'] = sanitize_text_field( $input['token'] );
+      $new_input['token'] = sanitize_text_field( $input['token'] );
     } else {
-        add_settings_error( 'wpal-setting', 'message', __('Please enter a token.', 'wp-applink') );
-
-        // 値をDBの設定値に戻します。
-        $new_input['token'] = isset( $this->options['token'] ) ? $this->options['token'] : '';
+      add_settings_error( 'wpal-setting', 'token', __('Please enter a token.', 'wp-applink') );
+      // 値をDBの設定値に戻します。
+      $new_input['token'] = isset( $this->options['token'] ) ? $this->options['token'] : '';
     }
-
     return $new_input;
   }
 
@@ -161,6 +162,15 @@ class WP_Applink
     ?><select name="wpal-setting[country]">
       <option value="ja"<?php selected($this->options['country'], 'ja'); ?>><?php echo __('Japan(Default)', 'wp-applink'); ?></option>
       <option value="us"<?php selected($this->options['country'], 'us'); ?>><?php echo __('United States', 'wp-applink'); ?></option>
+      </select><?php
+  }
+
+  public function cache_callback(){
+    ?><select name="wpal-setting[cache]">
+      <option value="1 day ago"<?php selected($this->options['cache'], '1 day ago'); ?>><?php echo __('1 day', 'wp-applink'); ?></option>
+      <option value ="1 week ago"<?php selected($this->options['cache'], '1 week ago'); ?>><?php echo __('1 week', 'wp-applink'); ?></option>
+      <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month', 'wp-applink'); ?></option>
+      <option value ="indefinitely"<?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', 'wp-applink'); ?></option>
       </select><?php
   }
 
