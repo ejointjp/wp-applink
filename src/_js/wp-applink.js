@@ -12,8 +12,11 @@
   	var $result = $('#wpal-result');
   	var $loader = $('#wpal-loader');
   	var $submit = $('#wpal-submit');
+
   	var term = $term.val();
   	var jqxhr;
+    var timer = false;
+    var suspension = 1000; // keyupイベント発動の猶予時間（s）
 
   	set_hidden_val();
 
@@ -21,26 +24,16 @@
   		ajax_send();
   	});
 
-  	$select.on('change', function(){
-  		set_hidden_val();
-      ajax_send();
+    $term.on('keydown', function(e){
+      // 検索ワード入力時にEnterで検索を実行。
+      if((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)){
+        e.preventDefault();
+        ajax_send();
+
+      } else {
+        return true;
+      }
     });
-
-  	$([$limit[0], $screenshot[0]]).on('change', function(){
-  		ajax_send();
-  	});
-
-  	$term.on('keyup', function(){
-  		ajax_send();
-
-  	}).on('keydown', function(e) {
-  		//Enterキーを無効
-  		if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
-  			return false;
-  		} else {
-  			return true;
-  		}
-  	});
 
 
   	function ajax_send(){
@@ -97,6 +90,7 @@
   				}
   			});
   		}
+      console.log('発動！');
   	}
 
 
