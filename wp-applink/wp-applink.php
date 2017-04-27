@@ -101,7 +101,6 @@ class WP_Applink
       <h2>WP Applink</h2>
 
       <?php
-
       global $parent_file;
       if ( $parent_file != 'options-general.php' ) {
         require(ABSPATH . 'wp-admin/options-head.php');
