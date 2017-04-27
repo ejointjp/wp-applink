@@ -1,2 +1,5 @@
 bourbon/
 neat/
+cache/
+node_modules/
+.sass-cache/
