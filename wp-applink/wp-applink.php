@@ -193,6 +193,9 @@ class WP_Applink
       $search->add_shortcode_options('screenshot', esc_html($_GET['screenshot']));
 
       $search->get_result();
+      $cachename = $search->search_query();
+      $search->save_cache($cachename);
+
       echo '<p>' . __('Search result', 'wp-applink') . ' <b>' . $search->search_result_count() . '</b> ' . __('items.', 'wp-applink') . '</p>';
       echo $search->search_result_html();
     }

@@ -34,7 +34,7 @@ abstract class WP_Applink_Itunes
   }
 
   //検索用クエリーストリングを出力
-  protected function search_query(){
+  public function search_query(){
      return http_build_query($this->query_array);
   }
 
@@ -65,6 +65,11 @@ abstract class WP_Applink_Itunes
   public function get_text(){
     return $this->text;
   }
+
+  public function save_cache($name){
+    $filename = MY_PLUGIN_DIR . 'cache/' . $name .  '.txt';
+    file_put_contents($filename, $this->get_text());
+    return $filename;
   }
 
   //ApplinkのHTMLを作成
