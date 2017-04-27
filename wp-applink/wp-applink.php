@@ -30,6 +30,8 @@ License: GPL2
 include_once dirname(__FILE__) . '/class/class-lookup.php';
 include_once dirname(__FILE__) . '/class/class-search.php';
 
+define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
+
 class WP_Applink
 {
   //PHGトークン
