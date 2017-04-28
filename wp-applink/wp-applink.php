@@ -168,7 +168,7 @@ class WP_Applink
     ?><select name="wpal-setting[cache]">
       <option value="1 day ago"<?php selected($this->options['cache'], '1 day ago'); ?>><?php echo __('1 day', 'wp-applink'); ?></option>
       <option value ="1 week ago"<?php selected($this->options['cache'], '1 week ago'); ?>><?php echo __('1 week', 'wp-applink'); ?></option>
-      <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month', 'wp-applink'); ?></option>
+      <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month(Default)', 'wp-applink'); ?></option>
       <option value ="indefinitely"<?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', 'wp-applink'); ?></option>
       </select><?php
   }
