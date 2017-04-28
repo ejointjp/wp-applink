@@ -204,10 +204,6 @@ class WP_Applink
       $search->add_query_param('media', esc_html($_GET['media']));
       $search->add_query_param('entity', esc_html($_GET['entity']));
       $search->add_query_param('limit', esc_html($_GET['limit']));
-
-      $cachename = $search->search_query();
-      $search->set_cachename($cachename);
-
       $search->add_query_param('at', esc_html($_GET['at']));
       $search->add_shortcode_options('screenshot', esc_html($_GET['screenshot']));
 

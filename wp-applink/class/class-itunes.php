@@ -102,9 +102,8 @@ abstract class WP_Applink_Itunes
   }
 
   protected function cachename_encode($name){
-    $target = array('=', '&');
-    $replace = str_replace($target, '-', $name);
-    $return = CACHE_DIR . $replace . '.txt';
+    $string = implode('-', $this->query_array);
+    $return = CACHE_DIR . $string . '.txt';
     return $return;
   }
 
@@ -156,6 +155,8 @@ abstract class WP_Applink_Itunes
   }
 
   public function setup_data(){
+    $cachename = $this->search_query();
+    $this->set_cachename($cachename);
     $this->delete_cache();
     $this->select_uri();
     $this->get_result();

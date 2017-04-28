@@ -10,12 +10,13 @@ class WP_Applink_Lookup extends WP_Applink_Itunes
 
   //Applinkを出力
   public function display_applink($param){
-
-    $search_query = $this->search_query();
-    $this->remove_query_param('at');
-    $cachename = $this->search_query();
-    $this->set_cachename($cachename);
-
+    // $this->options = get_option('wpal-setting');
+    // $search_query = $this->search_query();
+    // $this->remove_query_param('at');
+    // $cachename = $this->search_query();
+    // $this->set_cachename($cachename);
+    //
+    // $this->add_query_param('at', $this->options['token']);
     $this->setup_data();
 
     $app = $this->get_json()->results[0];
