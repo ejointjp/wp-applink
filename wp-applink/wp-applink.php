@@ -114,6 +114,9 @@ class WP_Applink
         submit_button();
       ?>
       </form>
+
+      <p><?php echo __('Please read this document for setting options.', 'wp-applink'); ?></p>
+      <p><a class="button" href="http://e-joint.jp/works/wp-applink/"><?php echo __('Read the Document', 'wp-applink'); ?></a></p>
     </div><!--wrap--><?php
   }
 
