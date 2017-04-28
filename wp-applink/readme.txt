@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple
 Requires at least: 4.0
-Tested up to: 4.7.2
-Stable tag: 0.1.2
+Tested up to: 4.7.4
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,10 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.2.0 =
+* update: add cache structure.
+* some bugfix.
+
 = 0.1.3 =
 * update: wp-applink.css
 
@@ -79,6 +83,15 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 * Initial release.
 
 == Upgrade notice ==
+
+= 0.2.0 =
+
+Fix to not make requests to the iTunes Search API more than necessary.
+
+Cache function was added. This allows you to save the search condition for a certain period of time and read the results from the cache without hitting the API.
+
+This not only reduces the number of requests to the API but also shortens the display time of the search results and the short code Applink.
+
 
 = 0.1.3 =
 
