@@ -68,12 +68,13 @@ class WP_Applink
   //プラグイン有効時に実行
   public function register_activation(){
     $this->options = get_option('wpal-setting');
+    $default_options = array();
 
-    if(!$this->options['token']){
-      add_option('wpal-setting', array('token' => self::PHG_TOKEN));
+    if(!$this->options){
+      $default_options['token'] = self::PHG_TOKEN;
+      $default_options['cache'] = '1 month ago';
+      add_option('wpal-setting', $default_options);
     }
-
-    add_option('wpal-setting', array('cache' => '1 month ago'));
   }
 
   //投稿ページと固定ページにmetaboxを表示
