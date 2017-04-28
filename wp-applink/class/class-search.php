@@ -22,7 +22,6 @@ class WP_Applink_Search extends WP_Applink_Itunes
     $result = $json->results;
 
     if($result){
-
       $html = '<div class="' . $prefix . 'wrapper">';
       foreach($result as $item){
         $mode = $this->mode($item);
