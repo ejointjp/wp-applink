@@ -69,6 +69,9 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.2.2 =
+* bugfix.
+
 = 0.2.1 =
 * update: add cache structure.
 * some bugfix.
