@@ -8,6 +8,7 @@ var gulp = require('gulp');
 var del = require('del');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
+var runSequence = require('run-sequence');
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,10 +45,21 @@ gulp.task('clean', function(){
   return del(deleteFiles);
 });
 
-gulp.task('build', function(){
+gulp.task('copy', function(){
   var src = path.join(dir.rel.src, dir.sass, 'wp-applink.scss');
   var dist = path.join(dir.rel.dist, dir.assets, dir.sass)
 
   return gulp.src(src)
     .pipe(gulp.dest(dist));
+});
+
+gulp.task('build', function(callback){
+
+  argv.all = true;
+  
+  runSequence(
+    'clean',
+    'copy',
+    callback
+  )
 });
