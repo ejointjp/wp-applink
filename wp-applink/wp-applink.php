@@ -137,7 +137,6 @@ class WP_Applink
   }
 
   public function sanitize( $input ){
-
     $this->options = get_option('wpal-setting');
     $new_input = array();
 
