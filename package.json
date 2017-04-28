@@ -7,11 +7,12 @@
     "start": "npm run watch",
     "gulp": "gulp",
     "gulp:clean": "gulp clean",
+    "gulp:build": "gulp build",
     "webpack:watch": "webpack -d --watch --progress",
     "webpack": "webpack -d --progress",
     "webpack:build": "NODE_ENV=production webpack -p --progress",
     "watch": "npm run webpack:watch",
-    "build": "run-s gulp:clean build"
+    "build": "run-s gulp:clean webpack:build gulp:build"
   },
   "dependencies": {
     "bourbon": "^4.3.4"
