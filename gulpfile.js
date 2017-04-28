@@ -7,6 +7,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var path = require('path');
+var argv = require('minimist')(process.argv.slice(2));
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,7 +28,17 @@ var file = config.file;
 // clean assets file
 gulp.task('clean', function(){
 
-  var deleteFiles = path.join(dir.rel.dist, dir.assets, dir.all, file.all);
+  var assets = path.join(dir.rel.dist, dir.assets, dir.all, file.all);
+  var caches = path.join(dir.rel.dist, 'cache', file.all);
+  var deleteFiles = [assets];
+
+  if(argv.cache){
+    var deleteFiles = [caches];
+  }
+
+  if(argv.all){
+    var deleteFiles = [assets, caches];
+  }
 
   console.log('Deleted files: ' + deleteFiles);
   del(deleteFiles);
