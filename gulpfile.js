@@ -56,8 +56,8 @@ gulp.task('copy', function(){
 
 gulp.task('build', function(callback){
 
-  argv.all = true;
-  
+  argv.cache = true;
+
   runSequence(
     'clean',
     'copy',
