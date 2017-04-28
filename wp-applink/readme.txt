@@ -4,7 +4,7 @@ Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple
 Requires at least: 4.0
 Tested up to: 4.7.4
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
-= 0.2.0 =
+= 0.2.1 =
 * update: add cache structure.
 * some bugfix.
 
@@ -84,7 +84,7 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Upgrade notice ==
 
-= 0.2.0 =
+= 0.2.1 =
 
 Fix to not make requests to the iTunes Search API more than necessary.
 
