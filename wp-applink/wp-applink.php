@@ -118,6 +118,8 @@ class WP_Applink
       ?>
       </form>
 
+      <p><button id="clear-cache" class="button">Clear Cache</button></p>
+
       <p><?php echo __('Please read this document for setting options.', 'wp-applink'); ?></p>
       <p><a class="button" href="http://e-joint.jp/works/wp-applink/"><?php echo __('Read the Document', 'wp-applink'); ?></a></p>
     </div><!--wrap--><?php
@@ -131,6 +133,7 @@ class WP_Applink
     add_settings_field('nocss', __('Do not use default CSS', 'wp-applink'), array( $this, 'nocss_callback' ), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('country', __('Country', 'wp-applink'), array( $this, 'country_callback' ), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('cache', __('Cache limit', 'wp-applink'), array( $this, 'cache_callback' ), 'wpal-setting', 'wpal-setting-section-id');
+    add_settings_field('clear-cache', __('Clear Cache', 'wp-applink'), array($this, 'clear_cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
   }
 
   public function sanitize( $input ){
@@ -141,6 +144,7 @@ class WP_Applink
     $new_input['nocss'] = $input['nocss'];
     $new_input['country'] = esc_attr($input['country']);
     $new_input['cache'] = esc_attr($input['cache']);
+    $new_input['clear-cache'] = $input['clear-cache'];
 
     if( isset( $input['token'] ) && trim( $input['token'] ) !== '' ) {
       $new_input['token'] = sanitize_text_field( $input['token'] );
@@ -177,6 +181,26 @@ class WP_Applink
       <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month(Default)', 'wp-applink'); ?></option>
       <option value ="indefinitely"<?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', 'wp-applink'); ?></option>
       </select><?php
+  }
+
+  public function clear_cache_callback(){
+    $options = get_option('wpal-setting');
+    if($options['clear-cache']){
+      $this->clear_cache();
+    }
+    ?><input type="checkbox" name="wpal-setting[clear-cache]" value="1"><?php
+  }
+
+  public function clear_cache(){
+    date_default_timezone_set('Asia/Tokyo');
+    $cachefiles = scandir(CACHE_DIR);
+    
+    foreach($cachefiles as $val){
+      $file = CACHE_DIR . $val;
+      if(!is_file($file)) continue;
+      //chmod($file, 0666);
+      unlink($file);
+    }
   }
 
   public function add_admin_js_css(){
