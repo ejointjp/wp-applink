@@ -195,7 +195,7 @@ abstract class WP_Applink_Itunes
       }
 
       $html .= '</div>';
-      $html .= '<a class="' . $prefix . 'btn" href="' . $this->link($item) . '" target="itune_store">' . $this->link_btn_label($mode) . '</a>';
+      $html .= '<div><a class="' . $prefix . 'btn" href="' . $this->link($item) . '" target="itune_store">' . $this->link_btn_label($mode) . '</a></div>';
       $html .= '</div>';
 
       if($this->screenshot_count() > 0){
