@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Applink\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2017-04-28 08:56+0900\n"
+"POT-Creation-Date: 2017-04-28 09:16+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: e-JOINT.jp <mail@e-joint.jp>\n"
@@ -100,57 +100,75 @@ msgstr "検索数"
 msgid "Search"
 msgstr "検索"
 
-#: wp-applink.php:124
+#: wp-applink.php:118
+msgid "Please read this document for setting options."
+msgstr "オプションの設定についてはこちらのドキュメントをお読みください。"
+
+#: wp-applink.php:119
+msgid "Read the Document"
+msgstr "ドキュメントを読む"
+
+#: wp-applink.php:127
 msgid "PHG Token"
 msgstr "PHGトークン"
 
-#: wp-applink.php:125
+#: wp-applink.php:128
 msgid "Do not use default CSS"
 msgstr "デフォルトのCSSを使わない"
 
-#: wp-applink.php:126
+#: wp-applink.php:129
 msgid "Country"
 msgstr "国"
 
-#: wp-applink.php:127
+#: wp-applink.php:130
 msgid "Cache limit"
 msgstr "キャッシュの保存期間"
 
-#: wp-applink.php:142
+#: wp-applink.php:145
 msgid "Please enter a token."
 msgstr "トークンを入力してください｡"
 
-#: wp-applink.php:162
+#: wp-applink.php:165
 msgid "Japan(Default)"
 msgstr "日本（デフォルト）"
 
-#: wp-applink.php:163
+#: wp-applink.php:166
 msgid "United States"
 msgstr "米国"
 
-#: wp-applink.php:169
+#: wp-applink.php:172
 msgid "1 day"
 msgstr "1日"
 
-#: wp-applink.php:170
+#: wp-applink.php:173
 msgid "1 week"
 msgstr "1週間"
 
-#: wp-applink.php:171
-msgid "1 month"
-msgstr "30日"
+#: wp-applink.php:174
+msgid "1 month(Default)"
+msgstr "1ヶ月（デフォルト）"
 
-#: wp-applink.php:172
+#: wp-applink.php:175
 msgid "Indefinitely"
 msgstr "無期限"
 
-#: wp-applink.php:212
+#: wp-applink.php:215
 msgid "Search result"
 msgstr "検索結果"
 
-#: wp-applink.php:212
+#: wp-applink.php:215
 msgid "items."
 msgstr "件"
+
+#~ msgid ""
+#~ "Please read this <a href=\"http://e-joint.jp/works/wp-applink/"
+#~ "\">document</a> for setting options."
+#~ msgstr ""
+#~ "オプションの設定に関しては、こちらの <a href=\"http://e-joint.jp/works/"
+#~ "wp-applink/\">ドキュメント</a> をお読みください。"
+
+#~ msgid "1 month"
+#~ msgstr "30日"
 
 #~ msgid ""
 #~ "It is a WordPress plugin that generates iTunes PHG affiliate links such "
