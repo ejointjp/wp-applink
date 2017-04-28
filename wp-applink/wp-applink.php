@@ -73,7 +73,7 @@ class WP_Applink
       add_option('wpal-setting', array('token' => self::PHG_TOKEN));
     }
 
-    add_option('wpal-setting', array('cache' => '1 week'));
+    add_option('wpal-setting', array('cache' => '1 month ago'));
   }
 
   //投稿ページと固定ページにmetaboxを表示
