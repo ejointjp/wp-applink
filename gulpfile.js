@@ -30,7 +30,7 @@ var file = config.file;
 gulp.task('clean', function(){
 
   var assets = path.join(dir.rel.dist, dir.assets, dir.all, file.all);
-  var caches = path.join(dir.rel.dist, 'cache', file.all);
+  var caches = path.join(dir.rel.dist, dir.cache, dir.all, file.all);
   var deleteFiles = [assets];
 
   if(argv.cache){
@@ -41,8 +41,9 @@ gulp.task('clean', function(){
     var deleteFiles = [assets, caches];
   }
 
-  console.log('Deleted files: ' + deleteFiles);
-  return del(deleteFiles);
+  return del(deleteFiles).then(function(paths){
+    console.log('Deleted files: \n', paths.join('\n'));
+  });
 });
 
 gulp.task('copy', function(){

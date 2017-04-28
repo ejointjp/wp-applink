@@ -22,6 +22,7 @@ var dir = {
   assets:   'assets',
   others:   'others',
   archives: '_archives',
+  cache:    'cache',
   all:      '**'
 };
 
