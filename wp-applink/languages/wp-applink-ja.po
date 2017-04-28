@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Applink\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2017-04-28 09:16+0900\n"
+"POT-Creation-Date: 2017-04-28 19:57+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: e-JOINT.jp <mail@e-joint.jp>\n"
@@ -24,23 +24,23 @@ msgstr ""
 "X-Generator: Poedit 1.8.12\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: class/class-itunes.php:366
+#: class/class-itunes.php:367
 msgid "Free"
 msgstr "無料"
 
-#: class/class-itunes.php:375
+#: class/class-itunes.php:376
 msgid "iOS Universal"
 msgstr "iOSユニバーサル"
 
-#: class/class-lookup.php:27
+#: class/class-lookup.php:28
 msgid "Link not found."
 msgstr "リンクが見つかりませんでした｡"
 
-#: class/class-search.php:38
+#: class/class-search.php:37
 msgid "Shortcode"
 msgstr "ショートコード"
 
-#: class/class-search.php:39
+#: class/class-search.php:38
 msgid "HTML Tag"
 msgstr "HTMLタグ"
 
@@ -100,63 +100,67 @@ msgstr "検索数"
 msgid "Search"
 msgstr "検索"
 
-#: wp-applink.php:118
+#: wp-applink.php:123
 msgid "Please read this document for setting options."
 msgstr "オプションの設定についてはこちらのドキュメントをお読みください。"
 
-#: wp-applink.php:119
+#: wp-applink.php:124
 msgid "Read the Document"
 msgstr "ドキュメントを読む"
 
-#: wp-applink.php:127
+#: wp-applink.php:132
 msgid "PHG Token"
 msgstr "PHGトークン"
 
-#: wp-applink.php:128
+#: wp-applink.php:133
 msgid "Do not use default CSS"
 msgstr "デフォルトのCSSを使わない"
 
-#: wp-applink.php:129
+#: wp-applink.php:134
 msgid "Country"
 msgstr "国"
 
-#: wp-applink.php:130
+#: wp-applink.php:135
 msgid "Cache limit"
 msgstr "キャッシュの保存期間"
 
-#: wp-applink.php:145
+#: wp-applink.php:136
+msgid "Clear Cache"
+msgstr "キャッシュを削除"
+
+#: wp-applink.php:151
 msgid "Please enter a token."
 msgstr "トークンを入力してください｡"
 
-#: wp-applink.php:165
+#: wp-applink.php:171
 msgid "Japan(Default)"
 msgstr "日本（デフォルト）"
 
-#: wp-applink.php:166
+#: wp-applink.php:172
 msgid "United States"
 msgstr "米国"
 
-#: wp-applink.php:172
+#: wp-applink.php:178
 msgid "1 day"
 msgstr "1日"
 
-#: wp-applink.php:173
+#: wp-applink.php:179
 msgid "1 week"
 msgstr "1週間"
 
-#: wp-applink.php:174
+#: wp-applink.php:180
 msgid "1 month(Default)"
 msgstr "1ヶ月（デフォルト）"
 
-#: wp-applink.php:175
+#: wp-applink.php:181
 msgid "Indefinitely"
 msgstr "無期限"
 
-#: wp-applink.php:215
+#: wp-applink.php:237
 msgid "Search result"
 msgstr "検索結果"
 
-#: wp-applink.php:215
+#: wp-applink.php:237
 msgid "items."
 msgstr "件"
 
