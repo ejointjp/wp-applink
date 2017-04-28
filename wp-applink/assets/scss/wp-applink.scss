@@ -1,0 +1,153 @@
+@import '~bourbon/app/assets/stylesheets/bourbon';
+
+$wpal-background: #f8f8f8 !default;
+$wpal-radius: 3px !default;
+$wpal-margin: 24px !default;
+$wpal-padding: 16px !default;
+$wpal-breakpoint: 750px !default;
+$wpal-icon-width: 60px !default;
+$wpal-icon-width-large: 88px !default;
+$wpal-btn-background: #333 !default;
+$wpal-btn-hover-background: #50AA8D !default;
+
+.wpal{
+  $class: #{&};
+  background: $wpal-background;
+  border-radius: $wpal-radius;
+  font-size: 15px;
+
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  margin: {
+    top: $wpal-margin;
+    bottom: $wpal-margin;
+  }
+  padding: $wpal-padding;
+
+  a{
+    text-decoration: none;
+  }
+
+  p{
+    margin: 0 !important; // WordPress autop measures
+  }
+
+  &-icon{
+    float: left;
+    max-height: $wpal-icon-width;
+    text-align: center;
+    width: $wpal-icon-width;
+  }
+
+  &-software{
+
+    #{$class}-icon{
+      border-radius: 20%;
+      overflow: hidden;
+    }
+  }
+
+  &-content{
+    margin-left: $wpal-padding + $wpal-icon-width;
+  }
+
+  &-title{
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  &-datas{
+    font-size: 0.85em;
+    color: #777;
+    line-height: 1.4;
+    margin-bottom: 3px;
+  }
+
+  &-data{
+    display: inline-block;
+    margin-right: 1em;
+  }
+
+
+  &-btn{
+    background: $wpal-btn-background;
+    border-radius: 3px;
+    color: white !important; // prevent default link color
+    display: inline-block;
+    line-height: 1;
+    margin-top: 0.25em;
+    padding: 0.5625em 1.125em 0.625em;
+    transition: 0.2s;
+    font-size: 0.9em;
+
+    &:hover{
+      color: white;
+      background: $wpal-btn-hover-background;
+    }
+  }
+
+  &-screenshots{
+    clear: both;
+    border-top: 1px solid white;
+    margin: 24px -1% 1%;
+
+    figcaption{
+      font-weight: bold;
+      font-size: 0.85em;
+      margin: 12px 1% 8px;
+      color: #666;
+    }
+
+    img{
+      width: 31.333%;
+      margin: 1%;
+    }
+  }
+
+  &-message {
+    font-size: 12px;
+    margin: 30px 0;
+    padding: 7px;
+    background: #f2f2f2;
+    color: #666;
+  }
+
+
+  @media screen and (min-width: $wpal-breakpoint){
+
+    font-size: 16px;
+
+    &-icon{
+      max-height: $wpal-icon-width-large;
+      width: $wpal-icon-width-large;
+    }
+
+    &-content{
+      margin-left: $wpal-padding + $wpal-icon-width-large;
+    }
+
+    &-title{
+    }
+
+    &-datas{
+    }
+
+    &-screenshots{
+      margin: 20px -0.5% 0;
+
+      figcaption{
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+      }
+
+      img{
+        width: 19%;
+        margin: 0.5%;
+      }
+    }
+  }
+}
