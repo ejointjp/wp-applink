@@ -41,13 +41,13 @@ gulp.task('clean', function(){
   }
 
   console.log('Deleted files: ' + deleteFiles);
-  del(deleteFiles);
+  return del(deleteFiles);
 });
 
 gulp.task('build', function(){
   var src = path.join(dir.rel.src, dir.sass, 'wp-applink.scss');
   var dist = path.join(dir.rel.dist, dir.assets, dir.sass)
 
-  gulp.src(src)
+  return gulp.src(src)
     .pipe(gulp.dest(dist));
 });
