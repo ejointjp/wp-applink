@@ -41,7 +41,7 @@ class WP_Applink
   public $lookup;
   //プラグインの設定値
   private $options;
-  // cacheフォルダ
+  //バージョン名
   const VERSION = '0.2.4';
 
   public function __construct(){
