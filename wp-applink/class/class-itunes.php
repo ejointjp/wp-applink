@@ -404,7 +404,7 @@ abstract class WP_Applink_Itunes
       return 'Mac App Store';
 
     }elseif($mode == 'ebook'){
-      return 'iBook Store';
+      return 'iBooks Store';
 
     }else {
       return 'iTunes Store';
