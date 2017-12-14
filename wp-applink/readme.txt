@@ -1,10 +1,10 @@
 === WP Applink ===
 Contributors: ejointjp
 Donate link:
-Tags: apps, app, link, iTunes, affiliate, shortcode, apple
+Tags: apps, app, link, iTunes, affiliate, shortcode, apple, phg
 Requires at least: 4.0
-Tested up to: 4.7.4
-Stable tag: 0.2.3
+Tested up to: 4.9.1
+Stable tag: 0.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,13 +41,13 @@ Applinkにはアイコン､タイトル､カテゴリー､価格､対応デ�
 
 = From WordPress Dashboard =
 
-1. Upload `wp-applink` folder to the /wp-content/plugins/ directory.
-2. Activate the plugin through the Plugins menu in WordPress.
-3. Simple setting on Applink's setting page.
+1. Get "WP Applink" from "Plugins > New add" on the WordPress dashboard.
+2. Activate this.
+3. Simple setting on WP Applink's setting page.
 4. By searching for an application in the Applink box displayed in the article creation screen (post or page) and pressing one of the "Shortcode" or "HTML tag" button, Applink's "Shortcode" or "HTML tag" will be pasted in the article.
 
-1. `wp-applink` フォルダを /wp-content/plugins/ ディレクトリにアップロードします｡
-2. WordPressのプラグインメニューからプラグインを有効化します｡
+1. 「プラグイン > 新規追加」から「WP Applink」を入手します。
+2. プラグインを有効化します｡
 3. Applinkの設定ページにて簡単な設定をします｡
 4. 記事作成画面（投稿または固定ページ）に表示されているApplinkのボックス内でアプリを検索し､「ショートコード」または「HTMLタグ」のボタンをクリックすると､Applinkを表示するためのショートコード､またはHTMLが記事入力欄にペーストされます｡
 
@@ -69,6 +69,9 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.2.5 =
+* update: stylesheet
+
 = 0.2.4 =
 * update translate.
 
@@ -83,7 +86,7 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 * some bugfix.
 
 = 0.1.3 =
-* update: wp-applink.css
+* update: stylesheet
 
 = 0.1.1 =
 * Change class name.

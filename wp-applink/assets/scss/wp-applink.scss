@@ -1,26 +1,32 @@
-@import '~bourbon/app/assets/stylesheets/bourbon';
-
 $wpal-background: #f8f8f8 !default;
-$wpal-radius: 3px !default;
+$wpal-breakpoint: 750px !default;
+$wpal-btn-color: #333 !default;
+$wpal-btn-radius: 8px !default;
+$wpal-content-margin: 6px !default;
+$wpal-datas-color: #777  !default;
+$wpal-font-size: 15px !default;
+$wpal-font-size-lg: 16px !default;
+$wpal-icon-width: 60px !default;
+$wpal-icon-width-lg: 88px !default;
 $wpal-margin: 24px !default;
 $wpal-padding: 16px !default;
-$wpal-breakpoint: 750px !default;
-$wpal-icon-width: 60px !default;
-$wpal-icon-width-large: 88px !default;
-$wpal-btn-background: #333 !default;
-$wpal-btn-hover-background: #50AA8D !default;
+$wpal-radius: 16px !default;
+
 
 .wpal{
   $class: #{&};
-  background: $wpal-background;
-  border-radius: $wpal-radius;
-  font-size: 15px;
 
+  // clearfix
   &::after {
     clear: both;
     content: '';
     display: table;
   }
+
+  background: $wpal-background;
+  border-radius: $wpal-radius;
+  font-size: $wpal-font-size;
+  line-height: normal;
 
   margin: {
     top: $wpal-margin;
@@ -46,7 +52,7 @@ $wpal-btn-hover-background: #50AA8D !default;
   &-software{
 
     #{$class}-icon{
-      border-radius: 20%;
+      border-radius: 21%;
       overflow: hidden;
     }
   }
@@ -57,14 +63,13 @@ $wpal-btn-hover-background: #50AA8D !default;
 
   &-title{
     font-weight: bold;
-    margin-bottom: 3px;
+    margin-bottom: $wpal-content-margin;
   }
 
   &-datas{
     font-size: 0.85em;
-    color: #777;
-    line-height: 1.4;
-    margin-bottom: 3px;
+    color: $wpal-datas-color;
+    margin-bottom: $wpal-content-margin + 4px;
   }
 
   &-data{
@@ -74,26 +79,26 @@ $wpal-btn-hover-background: #50AA8D !default;
 
 
   &-btn{
-    background: $wpal-btn-background;
-    border-radius: 3px;
-    color: white !important; // prevent default link color
+    background: $wpal-btn-color;
+    border-radius: $wpal-btn-radius;
+    color: white;
     display: inline-block;
     line-height: 1;
-    margin-top: 0.25em;
-    padding: 0.5625em 1.125em 0.625em;
+    padding: 0.4375em 1em 0.5em;
     transition: 0.2s;
     font-size: 0.9em;
+    border: 2px solid $wpal-btn-color;
 
     &:hover{
-      color: white;
-      background: $wpal-btn-hover-background;
+      background: transparent;
+      color: $wpal-btn-color;
     }
   }
 
   &-screenshots{
     clear: both;
     border-top: 1px solid white;
-    margin: 24px -1% 1%;
+    margin: $wpal-margin -1% -1%;
 
     figcaption{
       font-weight: bold;
@@ -110,24 +115,24 @@ $wpal-btn-hover-background: #50AA8D !default;
 
   &-message {
     font-size: 12px;
-    margin: 30px 0;
-    padding: 7px;
-    background: #f2f2f2;
+    margin: 24px 0;
+    padding: 8px;
+    background: $wpal-background;
     color: #666;
   }
 
 
   @media screen and (min-width: $wpal-breakpoint){
 
-    font-size: 16px;
+    font-size: $wpal-font-size-lg;
 
     &-icon{
-      max-height: $wpal-icon-width-large;
-      width: $wpal-icon-width-large;
+      max-height: $wpal-icon-width-lg;
+      width: $wpal-icon-width-lg;
     }
 
     &-content{
-      margin-left: $wpal-padding + $wpal-icon-width-large;
+      margin-left: $wpal-padding + $wpal-icon-width-lg;
     }
 
     &-title{
