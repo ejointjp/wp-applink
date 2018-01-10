@@ -4,10 +4,10 @@
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-var ENV = require('./modules/status');
-var PROD = ENV === "production";
-var path = require('path');
-var projectRoot = path.resolve(__dirname, '../'); // project root dir
+var ENV = require('./modules/status')
+var PROD = ENV === 'production'
+var path = require('path')
+var projectRoot = path.resolve(__dirname, '../') // project root dir
 
 var dir = {
   root:     projectRoot,
@@ -24,23 +24,23 @@ var dir = {
   archives: '_archives',
   cache:    'cache',
   all:      '**'
-};
+}
 
 var rel = {
   src: dir.src,
   dist: dir.dist,
-  archives: dir.archives,
-};
+  archives: dir.archives
+}
 
-dir.rel = rel;
+dir.rel = rel
 
-var abs = {};
+var abs = {}
 
-Object.keys(rel).forEach(function(key){
-  abs[key] = path.join(projectRoot, this[key]);
-}, rel);
+Object.keys(rel).forEach(function (key) {
+  abs[key] = path.join(projectRoot, this[key])
+}, rel)
 
-dir.abs = abs;
+dir.abs = abs
 
 var ext = {
   sass:   '.scss',
@@ -49,15 +49,15 @@ var ext = {
   php:    '.php',
   jpg:    '.jpg',
   allSrc: '.*'
-};
+}
 
 var file = {
   all: '*'
-};
+}
 
-Object.keys(ext).forEach(function(key){
-  file[key] = '!(_)*' + this[key];
-}, ext);
+Object.keys(ext).forEach(function (key) {
+  file[key] = '!(_)*' + this[key]
+}, ext)
 
 module.exports = {
 
@@ -80,7 +80,7 @@ module.exports = {
     js: {
       dir: {
         src: path.join(dir.js),
-        dist: path.join(dir.assets,dir.js)
+        dist: path.join(dir.assets, dir.js)
       },
       name: path.join(dir.all, file.js)
     }
@@ -132,4 +132,4 @@ module.exports = {
       name: path.join('/', dir.assets, dir.img, '[name].[ext]')
     }
   }
-};
+}

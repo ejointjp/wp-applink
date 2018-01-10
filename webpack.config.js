@@ -4,10 +4,10 @@
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-var ENV = require('./_config/modules/status');
-var PROD = ENV === "production";
+var ENV = require('./_config/modules/status')
+var PROD = ENV === 'production'
 
-console.log('\n' + 'status ----\n\n' + ENV + '\n\n----');
+console.log('\n' + 'status ----\n\n' + ENV + '\n\n----')
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,10 +16,10 @@ console.log('\n' + 'status ----\n\n' + ENV + '\n\n----');
 /////////////////////////////////////////////////////////////////////////////////////
 
 // common
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var webpack = require('webpack');
-var path = require('path');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var webpack = require('webpack')
+var path = require('path')
+// var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,10 +27,11 @@ var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-var config = require('./_config');
-var options = config.webpack;
-var dir = config.dir;
-var entry = require('./_config/modules/entry'); // entry file's object
+var config = require('./_config')
+var projectRoot = config.projectRoot
+var options = config.webpack
+var dir = config.dir
+var entry = require('./_config/modules/entry') // entry file's object
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -41,22 +42,22 @@ var entry = require('./_config/modules/entry'); // entry file's object
 var plugins = PROD ? [
 
   new webpack.optimize.AggressiveMergingPlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.optimize.OccurrenceOrderPlugin()
 
 ] : [
 
   new webpack.NoEmitOnErrorsPlugin()
 
-];
+]
 
 var commonPlugins = [
-  new BrowserSyncPlugin(options.BrowserSyncPlugin),
+  // new BrowserSyncPlugin(options.BrowserSyncPlugin),
   new ExtractTextPlugin('[name]'),
-  new webpack.LoaderOptionsPlugin(options.LoaderOptionsPlugin),
+  new webpack.LoaderOptionsPlugin(options.LoaderOptionsPlugin)
   // new webpack.LoaderOptionsPlugin(options.pugLoader)
 
-];
-plugins = plugins.concat(commonPlugins);
+]
+plugins = plugins.concat(commonPlugins)
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,8 +65,8 @@ plugins = plugins.concat(commonPlugins);
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-var bundleLog = require('./_config/modules/bundle-log');
-bundleLog();
+var bundleLog = require('./_config/modules/bundle-log')
+bundleLog()
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,7 +81,7 @@ module.exports = {
       'node_modules'
     ],
     alias: {
-      motiv: path.join(__dirname, 'node_modules/motiv.scss/dist/scss'),
+      motiv: path.join(projectRoot, 'node_modules/motiv.scss/dist/scss')
     }
   },
 
@@ -112,7 +113,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: options.sassLoader
-          },
+          }
         ])
       },
       {
@@ -138,4 +139,4 @@ module.exports = {
       }
     ]
   }
-};
+}

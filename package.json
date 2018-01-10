@@ -11,13 +11,14 @@
     "webpack:watch": "webpack -d --watch --progress",
     "webpack": "webpack -d --progress",
     "webpack:build": "NODE_ENV=production webpack -p --progress",
-    "watch": "npm run webpack:watch",
-    "build": "run-s gulp:clean webpack:build gulp:build"
+    "browser-sync:watch": "browser-sync start --config browser-sync.config.js",
+    "watch": "run-p *:watch",
+    "build": "run-s gulp:clean webpack:build gulp:build",
+    "preview": "npm run browser-sync:watch"
   },
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.18.13",
-    "browser-sync-webpack-plugin": "^1.2.0",
     "css-loader": "^0.28.7",
     "del": "^3.0.0",
     "eslint": "^4.13.1",
