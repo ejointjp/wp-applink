@@ -157,7 +157,7 @@ class WP_Applink {
     add_settings_field('clear-cache', __('Clear Cache', $this->textdomain), array($this, 'clear_cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
   }
 
-  public function sanitize( $input ) {
+  public function sanitize($input) {
     $new_input = array();
 
     $new_input['nocss'] = $input['nocss'];
@@ -166,11 +166,12 @@ class WP_Applink {
     $new_input['post-type'] = $input['post-type'];
     $new_input['clear-cache'] = $input['clear-cache'];
 
-    if( isset( $input['token'] ) && trim( $input['token'] ) !== '' ) {
-      $new_input['token'] = sanitize_text_field( $input['token'] );
+    if(isset($input['token']) && trim($input['token']) !== '') {
+      $new_input['token'] = sanitize_text_field($input['token']);
+
     } else {
       add_settings_error('wpal-setting', 'token', __('Please enter a token.', $this->textdomain));
-      // 値をDBの設定値に戻します。
+      // 値をDBの設定値に戻す
       $new_input['token'] = isset($this->options['token']) ? $this->options['token'] : '';
     }
     return $new_input;
