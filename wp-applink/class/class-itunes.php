@@ -1,15 +1,15 @@
 <?php
 abstract class WP_Applink_Itunes {
 
-  //検索のベースとなるURIを返す関数は必須
+  // 検索のベースとなるURIを返す関数は必須
   abstract function base_uri();
 
   const APPNAME = 'wpal';
   // 検索結果のテキスト
   protected $text = null;
-  //検索クエリに使うための配列｡
+  // 検索クエリに使うための配列｡
   protected $query_array = array();
-  //ショートコードのオプションに使うための配列
+  // ショートコードのオプションに使うための配列
   protected $shortcode_options = array();
   // jsonの取得先。$this->search_url() または $cachename が入る
   protected $uri = null;
@@ -37,7 +37,7 @@ abstract class WP_Applink_Itunes {
     $this->domainpath = $datas['domainpath'];
   }
 
-  //国を判別
+  // 国を判別
   protected function select_country() {
     $options = get_option('wpal-setting');
     $country = $options['country'];
@@ -48,7 +48,7 @@ abstract class WP_Applink_Itunes {
     }
   }
 
-  //検索用GETパラメータを追加
+  // 検索用GETパラメータを追加
   public function add_query_param($key, $val) {
     $this->query_array[$key] = $val;
   }
@@ -57,18 +57,18 @@ abstract class WP_Applink_Itunes {
     unset($this->query_array[$key]);
   }
 
-  //検索用クエリーストリングを出力
+  // 検索用クエリーストリングを出力
   public function search_query() {
      return http_build_query($this->query_array);
   }
 
-  //検索URLを出力
+  // 検索URLを出力
   public function search_uri() {
     $base_uri = $this->base_uri();
     return urldecode($base_uri . '?' . $this->search_query());
   }
 
-  //検索結果のJSONを取得
+  // 検索結果のJSONを取得
   public function get_result() {
     $uri = $this->get_uri();
     if($json = file_get_contents($uri,true)) {
@@ -147,7 +147,7 @@ abstract class WP_Applink_Itunes {
 
   public static function delete_cache() {
     date_default_timezone_set('Asia/Tokyo');
-    //削除期限
+    // 削除期限
     $limit = get_option('wpal-setting')['cache'];
 
     if($limit !== 'indefinitely') {
@@ -159,7 +159,7 @@ abstract class WP_Applink_Itunes {
         if(!is_file($file)) continue;
         $mod = filemtime($file);
         if($mod < $expire) {
-          //chmod($file, 0666);
+          // chmod($file, 0666);
           unlink($file);
         }
       }
@@ -174,7 +174,7 @@ abstract class WP_Applink_Itunes {
     $this->get_result();
   }
 
-  //ApplinkのHTMLを作成
+  // ApplinkのHTMLを作成
   protected function applink_html($obj) {
     $prefix = $this->prefix();
     $item = $obj;
@@ -275,14 +275,14 @@ abstract class WP_Applink_Itunes {
     }
   }
 
-  //プロパティの出力をよしなにする
+  // プロパティの出力をよしなにする
   protected function exists($obj, $property) {
     if(property_exists($obj, $property)) {
       return $obj->$property;
     }
   }
 
-  //アイテムの配列とそうでない場合の出力をよしなにする
+  // アイテムの配列とそうでない場合の出力をよしなにする
   protected function array_implode($item, $separator = ', ') {
     if(is_array($item)) {
       return implode($item, $separator);
@@ -423,7 +423,7 @@ abstract class WP_Applink_Itunes {
     }
   }
 
-  //スクリーンショットの枚数などのオプションを追加するためのもの
+  // スクリーンショットの枚数などのオプションを追加するためのもの
   public function add_shortcode_options($key, $val) {
     $this->shortcode_options[$key]= $val;
   }

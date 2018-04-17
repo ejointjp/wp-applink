@@ -7,7 +7,7 @@ class WP_Applink_Lookup extends WP_Applink_Itunes {
     return 'https://itunes.apple.com/lookup';
   }
 
-  //Applinkを出力
+  // Applinkを出力
   public function display_applink($param){
     // $this->options = get_option('wpal-setting');
     // $search_query = $this->search_query();

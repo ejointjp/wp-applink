@@ -1,21 +1,20 @@
 <?php
 include_once dirname(__FILE__) . '/class-itunes.php';
 
-class WP_Applink_Search extends WP_Applink_Itunes
-{
+class WP_Applink_Search extends WP_Applink_Itunes {
 
-  //検索のベースとなるURI
+  // 検索のベースとなるURI
   public function base_uri(){
     return 'https://itunes.apple.com/search';
   }
 
-  //検索結果の件数を取得
+  // 検索結果の件数を取得
   public function search_result_count(){
     $json = $this->get_json();
     return $json->resultCount;
   }
 
-  //検索結果のHTMLを作成｡metabox内で使用される
+  // 検索結果のHTMLを作成。metabox内で使用される
   public function search_result_html(){
     $prefix = $this->prefix();
     $json = $this->get_json();
@@ -44,7 +43,7 @@ class WP_Applink_Search extends WP_Applink_Itunes
     }
   }
 
-  //ショートコードそのものを生成する
+  // ショートコードそのものを生成する
   private function generate_shortcode($trackId, $trackName){
     $param = array(
       'id' => $trackId,

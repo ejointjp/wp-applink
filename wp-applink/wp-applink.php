@@ -34,9 +34,9 @@ define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CACHE_DIR', MY_PLUGIN_DIR . 'cache/');
 
 class WP_Applink {
-  //PHGトークン
+  // PHGトークン
   const PHG_TOKEN = '11l64V';
-  //Class Lookupのインスタンス
+  // Class Lookupのインスタンス
   public $lookup;
   private $options;
   private $version;
@@ -62,11 +62,11 @@ class WP_Applink {
     add_action('wp_ajax_nopriv_wpal_ajax_search', array($this, 'wpal_ajax_search'));
     add_shortcode('applink', array($this, 'wpal_shortcode'));
 
-    //Class Lookupのインスタンスを生成
+    // Class Lookupのインスタンスを生成
     $this->lookup = new WP_Applink_Lookup();
   }
 
-  //プラグイン有効時に実行
+  // プラグイン有効時に実行
   public function register_activation() {
     $this->options = get_option('wpal-setting');
     $default_options = array();
@@ -96,13 +96,13 @@ class WP_Applink {
     load_plugin_textdomain($this->textdomain, false, dirname(plugin_basename(__FILE__)) . $this->domainpath);
   }
 
-  //投稿ページと固定ページにmetaboxを表示
+  // 投稿ページと固定ページにmetaboxを表示
   public function add_meta_box() {
     add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), 'post', 'side', 'high');
     add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), 'page', 'side', 'high');
   }
 
-  //管理画面に設定画面を追加
+  // 管理画面に設定画面を追加
   public function add_plugin_page() {
     add_options_page (
       'WP Applink',
@@ -214,7 +214,7 @@ class WP_Applink {
     foreach($cachefiles as $val) {
       $file = CACHE_DIR . $val;
       if(!is_file($file)) continue;
-      //chmod($file, 0666);
+      // chmod($file, 0666);
       unlink($file);
     }
   }
@@ -224,7 +224,7 @@ class WP_Applink {
     wp_enqueue_script('wpal', plugins_url('assets/js/wp-applink.js', __FILE__), array('jquery'), $this->version);
   }
 
-  //スタイルシートの追加
+  // スタイルシートの追加
   public function add_styles() {
     $this->options = get_option('wpal-setting');
 
@@ -261,7 +261,7 @@ class WP_Applink {
     die();
   }
 
-  //ショートコードの定義
+  // ショートコードの定義
   public function wpal_shortcode($atts) {
     extract(shortcode_atts(array(
       'id' => null,
