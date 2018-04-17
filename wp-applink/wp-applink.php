@@ -3,7 +3,7 @@
 Plugin Name: WP Applink
 Plugin URI: http://e-joint.jp/works/wp-applink/
 Description: It is a WordPress plugin that generates iTunes PHG affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
-Version: 0.2.5
+Version: 0.2.6
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 Text Domain: wp-applink

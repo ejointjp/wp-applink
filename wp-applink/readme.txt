@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple, phg
 Requires at least: 4.0
-Tested up to: 4.9.1
-Stable tag: 0.2.5
+Tested up to: 4.9.5
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,19 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Upgrade notice ==
 
+= 0.3.0 =
+
+Update
+
+* You can now select the post type to display WP Applink's meta box.
+* WP Applinkのメタボックスを表示させる投稿タイプを選択できるようになりました。
+
+Fix
+
+* Fixed bug in enabling plugin.
+* プラグイン有効時の不具合を修正しました。
+
+
 = 0.2.1 =
 
 Fix to not make requests to the iTunes Search API more than necessary.
@@ -107,7 +120,7 @@ This not only reduces the number of requests to the API but also shortens the di
 
 = 0.1.3 =
 
-update stylesheet
+Update stylesheet
 
 * wordpress autop measures
 * Fix to prevent the default style to button font color
