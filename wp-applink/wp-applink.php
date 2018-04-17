@@ -46,6 +46,7 @@ class WP_Applink {
   public function __construct() {
 
     $this->set_datas();
+    $this->options = get_option('wpal-setting');
 
     if(function_exists('register_activation_hook')) {
       register_activation_hook(__FILE__, array($this, 'register_activation'));
@@ -68,7 +69,6 @@ class WP_Applink {
 
   // プラグイン有効時に実行
   public function register_activation() {
-    $this->options = get_option('wpal-setting');
     $default_options = array();
 
     if(!$this->options['token']) {
@@ -114,9 +114,6 @@ class WP_Applink {
   }
 
   public function create_admin_page() {
-
-    $this->options = get_option( 'wpal-setting' );
-
     ?><div class="wrap">
       <h2>WP Applink</h2>
 
@@ -154,7 +151,6 @@ class WP_Applink {
   }
 
   public function sanitize( $input ) {
-    $this->options = get_option('wpal-setting');
     $new_input = array();
 
     $new_input['nocss'] = $input['nocss'];
@@ -200,7 +196,6 @@ class WP_Applink {
   }
 
   public function clear_cache_callback() {
-    $options = get_option('wpal-setting');
     if($options['clear-cache']) {
       $this->clear_cache();
     }
@@ -226,8 +221,6 @@ class WP_Applink {
 
   // スタイルシートの追加
   public function add_styles() {
-    $this->options = get_option('wpal-setting');
-
     if(!isset($this->options['nocss']) || (isset($this->options['nocss']) && !$this->options['nocss'])) {
       wp_enqueue_style('wpal', plugins_url('assets/css/wp-applink.css', __FILE__), array(), $this->version);
     }
@@ -269,7 +262,6 @@ class WP_Applink {
       'screenshot' => null
     ), $atts));
 
-    $this->options = get_option('wpal-setting');
     $lookup = $this->lookup;
 
     $lookup->add_query_param('id', $id);
