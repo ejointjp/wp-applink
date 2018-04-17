@@ -140,8 +140,6 @@ class WP_Applink {
       ?>
       </form>
 
-      <p><button id="clear-cache" class="button">Clear Cache</button></p>
-
       <p><?php echo __('Please read this document for setting options.', $this->textdomain); ?></p>
       <p><a class="button" href="http://e-joint.jp/works/wp-applink/"><?php echo __('Read the Document', $this->textdomain); ?></a></p>
     </div><!--wrap--><?php
