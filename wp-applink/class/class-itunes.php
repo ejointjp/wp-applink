@@ -21,7 +21,20 @@ abstract class WP_Applink_Itunes {
   protected $is_shortcode = false;
 
   public function __construct() {
+    $this->set_datas();
     $this->select_country();
+  }
+
+  private function set_datas() {
+    $datas = get_file_data(plugin_dir_path(__FILE__) . '../wp-applink.php', array(
+      'version' => 'Version',
+      'textdomain' => 'Text Domain',
+      'domainpath' => 'Domain Path'
+    ));
+
+    $this->version = $datas['version'];
+    $this->textdomain = $datas['textdomain'];
+    $this->domainpath = $datas['domainpath'];
   }
 
   //国を判別
@@ -363,7 +376,7 @@ abstract class WP_Applink_Itunes {
 
   protected function format_price($int) {
     if($int == 0) {
-      return __('Free', 'wp-applink');
+      return __('Free', $this->textdomain);
     } elseif($int > 0) {
       return '¥' . number_format($int);
     }
@@ -372,7 +385,7 @@ abstract class WP_Applink_Itunes {
   protected function ios_universal($obj) {
 
     if(property_exists($obj, 'features') && in_array('iosUniversal', $obj->features)) {
-      return __('iOS Universal', 'wp-applink');
+      return __('iOS Universal', $this->textdomain);
     }
   }
 

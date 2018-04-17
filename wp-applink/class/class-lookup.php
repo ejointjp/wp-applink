@@ -24,7 +24,7 @@ class WP_Applink_Lookup extends WP_Applink_Itunes {
       $title = $param['title'];
       $title = is_null($title) ? '' : '「' . $title . '」';
 
-      return '<p class="' . $this->prefix() . 'message">' . $title . __('Link not found.', 'wp-applink') . ': (WP Applink)</p>';
+      return '<p class="' . $this->prefix() . 'message">' . $title . __('Link not found.', $this->textdomain) . ': (WP Applink)</p>';
     } else {
       //アプリがあればHTMLを出力
       if($this->get_status() === 'API'){
