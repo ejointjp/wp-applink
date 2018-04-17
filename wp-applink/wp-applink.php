@@ -46,11 +46,13 @@ class WP_Applink {
   public function __construct() {
 
     $this->set_datas();
-    $this->options = get_option('wpal-setting');
 
     if(function_exists('register_activation_hook')) {
       register_activation_hook(__FILE__, array($this, 'register_activation'));
     }
+
+    $this->options = get_option('wpal-setting');
+
     // 翻訳ファイルの読み込み
     add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
 
@@ -69,15 +71,15 @@ class WP_Applink {
 
   // プラグイン有効時に実行
   public function register_activation() {
-    $default_options = array();
+    if(!$this->options) {
 
-    if(!$this->options['token']) {
-      $default_options['token'] = self::PHG_TOKEN;
+      $default_options = array(
+        'token' => self::PHG_TOKEN,
+        'cache' => '1 month ago'
+      );
+
+      update_option('wpal-setting', $default_options);
     }
-    if(!$this->options['cache']) {
-      $default_options['cache'] = '1 month ago';
-    }
-    update_option('wpal-setting', $default_options);
   }
 
   private function set_datas() {
