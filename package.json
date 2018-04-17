@@ -1,6 +1,6 @@
 {
   "name": "wp-applink",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "WordPress plugin that generates iTunes affiliate links such as iPhone, iPad, Mac apps and music, movies etc.",
   "scripts": {
     "test": "NODE_ENV=production node webpack.config",
