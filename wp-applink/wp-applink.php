@@ -150,7 +150,7 @@ class WP_Applink {
     add_settings_section('wpal-setting-section-id', '', '', 'wpal-setting');
 
     add_settings_field('token', __('PHG Token', $this->textdomain), array($this, 'token_callback'), 'wpal-setting', 'wpal-setting-section-id');
-    add_settings_field('nocss', __('Do not use default CSS', $this->textdomain), array($this, 'nocss_callback'), 'wpal-setting', 'wpal-setting-section-id');
+    add_settings_field('nocss', __('Do not use plugin\'s CSS', $this->textdomain), array($this, 'nocss_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('country', __('Country', $this->textdomain), array($this, 'country_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('cache', __('Cache limit', $this->textdomain), array($this, 'cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('post-type', __('Post type to use', $this->textdomain), array($this, 'post_type_callback'), 'wpal-setting', 'wpal-setting-section-id');
