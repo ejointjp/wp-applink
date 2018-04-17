@@ -75,7 +75,8 @@ class WP_Applink {
 
       $default_options = array(
         'token' => self::PHG_TOKEN,
-        'cache' => '1 month ago'
+        'cache' => '1 month ago',
+        'post-type' => $this->get_post_types()
       );
 
       update_option('wpal-setting', $default_options);
@@ -98,10 +99,15 @@ class WP_Applink {
     load_plugin_textdomain($this->textdomain, false, dirname(plugin_basename(__FILE__)) . $this->domainpath);
   }
 
-  // 投稿ページと固定ページにmetaboxを表示
+  // metaboxを表示させる
   public function add_meta_box() {
-    add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), 'post', 'side', 'high');
-    add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), 'page', 'side', 'high');
+    $post_types = $this->get_post_types();
+
+    foreach($post_types as $post_type) {
+      if($this->is_post_type_enabled($post_type)) {
+        add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), $post_type, 'side', 'high');
+      }
+    }
   }
 
   // 管理画面に設定画面を追加
@@ -149,6 +155,7 @@ class WP_Applink {
     add_settings_field('nocss', __('Do not use default CSS', $this->textdomain), array($this, 'nocss_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('country', __('Country', $this->textdomain), array($this, 'country_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('cache', __('Cache limit', $this->textdomain), array($this, 'cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
+    add_settings_field('post-type', __('Post type to use', $this->textdomain), array($this, 'post_type_callback'), 'wpal-setting', 'wpal-setting-section-id');
     add_settings_field('clear-cache', __('Clear Cache', $this->textdomain), array($this, 'clear_cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
   }
 
@@ -158,6 +165,7 @@ class WP_Applink {
     $new_input['nocss'] = $input['nocss'];
     $new_input['country'] = esc_attr($input['country']);
     $new_input['cache'] = esc_attr($input['cache']);
+    $new_input['post-type'] = $input['post-type'];
     $new_input['clear-cache'] = $input['clear-cache'];
 
     if( isset( $input['token'] ) && trim( $input['token'] ) !== '' ) {
@@ -173,7 +181,6 @@ class WP_Applink {
   public function token_callback() {
     $token = isset($this->options['token']) ? $this->options['token'] : '';
     ?><input type="text" name="wpal-setting[token]" size="30" value="<?php echo esc_attr($token); ?>"><?php
-
   }
 
   public function nocss_callback() {
@@ -195,6 +202,18 @@ class WP_Applink {
       <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month(Default)', $this->textdomain); ?></option>
       <option value ="indefinitely"<?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', $this->textdomain); ?></option>
       </select><?php
+  }
+
+  public function post_type_callback() {
+    $post_types = $this->get_post_types();
+
+    foreach($post_types as $post_type) {
+      $object = get_post_type_object($post_type);
+      $label = $object->label;
+      $checked = $this->is_post_type_enabled($post_type) ? 1 : 0;
+
+      printf('<input type="checkbox" id="post-type" name="wpal-setting[post-type][]" value="%s"%s>%s ', $post_type, checked($checked, 1, false), $label);
+    }
   }
 
   public function clear_cache_callback() {
@@ -230,6 +249,32 @@ class WP_Applink {
 
   public function create_meta_box() {
     include dirname(__FILE__) . '/views/view-metabox.php';
+  }
+
+  private function get_post_types() {
+    $args = array(
+      'public'   => true
+    );
+    $output = 'names'; // names or objects, note names is the default
+    $operator = 'and'; // 'and' or 'or'
+    $post_types = get_post_types($args, $output, $operator);
+
+    // 配列からattachmentを削除
+    if(($key = array_search('attachment', $post_types)) !== false) {
+      unset($post_types[$key]);
+    }
+
+    return $post_types;
+  }
+
+  private function is_post_type_enabled($post_type) {
+    $post_types = $this->options['post-type'];
+    if(is_null($post_types)) {
+      return false;
+
+    } else {
+      return array_search($post_type, $post_types) !== false;
+    }
   }
 
   public function wpal_ajax_search() {
