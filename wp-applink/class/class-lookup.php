@@ -1,8 +1,7 @@
 <?php
 include_once dirname(__FILE__) . '/class-itunes.php';
 
-class WP_Applink_Lookup extends WP_Applink_Itunes
-{
+class WP_Applink_Lookup extends WP_Applink_Itunes {
   //検索のベースとなるURI
   public function base_uri(){
     return 'https://itunes.apple.com/lookup';
