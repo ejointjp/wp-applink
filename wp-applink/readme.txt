@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple, phg
 Requires at least: 4.0
-Tested up to: 4.9.5
-Stable tag: 0.3.0
+Tested up to: 4.9.6
+Stable tag: 0.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,19 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.3.2 =
+* Bug fix.
+
+= 0.3.1 =
+* Bug fix.
+
+= 0.3.0 =
+* You can now select the post type to display WP Applink's meta box.
+* Fixed bug in enabling plugin.
+
+* WP Applinkのメタボックスを表示させる投稿タイプを選択できるようになりました。
+* プラグイン有効時の不具合を修正しました。
+
 = 0.2.5 =
 * update: stylesheet
 
@@ -96,14 +109,9 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Upgrade notice ==
 
+* Bug fix.
+
 = 0.3.0 =
-
-Update
-
-* You can now select the post type to display WP Applink's meta box.
-* WP Applinkのメタボックスを表示させる投稿タイプを選択できるようになりました。
-
-Fix
 
 * Fixed bug in enabling plugin.
 * プラグイン有効時の不具合を修正しました。
