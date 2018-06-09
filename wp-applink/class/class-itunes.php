@@ -148,7 +148,8 @@ abstract class WP_Applink_Itunes {
   public static function delete_cache() {
     date_default_timezone_set('Asia/Tokyo');
     // 削除期限
-    $limit = get_option('wpal-setting')['cache'];
+    $options = get_option('wpal-setting');
+    $limit = $options['cache'];
 
     if($limit !== 'indefinitely') {
       $expire = strtotime($limit);
