@@ -236,14 +236,14 @@ class WP_Applink {
   }
 
   public function add_admin_js_css() {
-    wp_enqueue_style('wpal', plugins_url('assets/css/metabox.css', __FILE__), array(), $this->version);
-    wp_enqueue_script('wpal', plugins_url('assets/js/wp-applink.js', __FILE__), array('jquery'), $this->version);
+    wp_enqueue_style('wpal', plugins_url('assets/css/admin.css', __FILE__), array(), $this->version);
+    wp_enqueue_script('wpal', plugins_url('assets/js/bundle.js', __FILE__), array('jquery'), $this->version, true);
   }
 
   // スタイルシートの追加
   public function add_styles() {
     if(!isset($this->options['nocss']) || (isset($this->options['nocss']) && !$this->options['nocss'])) {
-      wp_enqueue_style('wpal', plugins_url('assets/css/wp-applink.css', __FILE__), array(), $this->version);
+      wp_enqueue_style('wpal', plugins_url('assets/css/style.css', __FILE__), array(), $this->version);
     }
   }
 

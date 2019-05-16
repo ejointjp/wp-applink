@@ -56,7 +56,6 @@ $limit = array(1, 3, 5, 10, 20, 30, 50, 100);
 	?>
   <input type="hidden" name="at" value="<?php echo $token; ?>" id="wpal-token">
   <div id="wpal-submit" class="wpal-submit button button-primary button-large"><?php echo __('Search'); ?></div>
-	<?php //submit_button(); ?>
 </div>
 
 <div id="wpal-loader" class="wpal-loader">

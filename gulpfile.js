@@ -1,66 +1,32 @@
-/////////////////////////////////////////////////////////////////////////////////////
+const gulp = require('gulp')
+const path = require('path')
 
-// requirement
+const config = require('./config')
+const dir = config.dir
+const src = {
+  stylus: [
+    path.resolve(dir.src, 'stylus', '**', '*.styl')
+  ],
+  js: [
+    path.resolve(dir.dest, 'js', '**', '*.js')
+  ],
+  css: [
+    path.resolve(dir.dest, 'css', '**', '*.css')
+  ]
+}
+const dist = {
+  stylus: path.resolve(__dirname, dir.dist, 'stylus'),
+  js: path.resolve(__dirname, dir.dist, 'js'),
+  css: path.resolve(__dirname, dir.dist, 'css')
+}
 
-/////////////////////////////////////////////////////////////////////////////////////
+gulp.task('copy', function (cb) {
+  const items = ['stylus', 'js', 'css']
 
-var gulp = require('gulp');
-var del = require('del');
-var path = require('path');
-var argv = require('minimist')(process.argv.slice(2));
-var runSequence = require('run-sequence');
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// config
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-var config = require('./_config');
-var dir = config.dir;
-var file = config.file;
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// tasks
-
-/////////////////////////////////////////////////////////////////////////////////////
-
-// clean assets file
-gulp.task('clean', function(){
-
-  var assets = path.join(dir.rel.dist, dir.assets, dir.all, file.all);
-  var caches = path.join(dir.rel.dist, dir.cache, dir.all, file.all);
-  var deleteFiles = [assets];
-
-  if(argv.cache){
-    var deleteFiles = [caches];
-  }
-
-  if(argv.all){
-    var deleteFiles = [assets, caches];
-  }
-
-  return del(deleteFiles).then(function(paths){
-    console.log('Deleted files: \n', paths.join('\n'));
-  });
-});
-
-gulp.task('copy', function(){
-  var src = path.join(dir.rel.src, dir.sass, 'wp-applink.scss');
-  var dist = path.join(dir.rel.dist, dir.assets, dir.sass)
-
-  return gulp.src(src)
-    .pipe(gulp.dest(dist));
-});
-
-gulp.task('build', function(callback){
-
-  argv.cache = true;
-
-  runSequence(
-    'clean',
-    'copy',
-    callback
-  )
-});
+  items.forEach(function (item) {
+    gulp
+      .src(src[item])
+      .pipe(gulp.dest(dist[item]))
+  })
+  cb()
+})
