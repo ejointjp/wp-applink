@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple, phg
 Requires at least: 4.0
-Tested up to: 4.9.6
-Stable tag: 0.3.2
+Tested up to: 5.2.0
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,10 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Changelog ==
 
+= 0.4.0 =
+* Support for Gutenberg block editor.
+* Gutenberg ブロックエディターに対応しました。
+
 = 0.3.2 =
 * Bug fix.
 
@@ -109,13 +113,17 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 
 == Upgrade notice ==
 
+= 0.4.0 =
+* Support for Gutenberg block editor.
+* Gutenberg ブロックエディターに対応しました。
+
+= 0.3.2 =
 * Bug fix.
 
 = 0.3.0 =
 
 * Fixed bug in enabling plugin.
 * プラグイン有効時の不具合を修正しました。
-
 
 = 0.2.1 =
 
@@ -124,7 +132,6 @@ Fix to not make requests to the iTunes Search API more than necessary.
 Cache function was added. This allows you to save the search condition for a certain period of time and read the results from the cache without hitting the API.
 
 This not only reduces the number of requests to the API but also shortens the display time of the search results and the short code Applink.
-
 
 = 0.1.3 =
 

@@ -6,22 +6,14 @@ const dir = config.dir
 const src = {
   stylus: [
     path.resolve(dir.src, 'stylus', '**', '*.styl')
-  ],
-  js: [
-    path.resolve(dir.dest, 'js', '**', '*.js')
-  ],
-  css: [
-    path.resolve(dir.dest, 'css', '**', '*.css')
   ]
 }
 const dist = {
-  stylus: path.resolve(__dirname, dir.dist, 'stylus'),
-  js: path.resolve(__dirname, dir.dist, 'js'),
-  css: path.resolve(__dirname, dir.dist, 'css')
+  stylus: path.resolve(__dirname, dir.dist, 'assets', 'stylus')
 }
 
 gulp.task('copy', function (cb) {
-  const items = ['stylus', 'js', 'css']
+  const items = ['stylus']
 
   items.forEach(function (item) {
     gulp

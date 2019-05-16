@@ -33,9 +33,12 @@ class WP_Applink_Search extends WP_Applink_Itunes {
         $html .= '</div>';
         $html .= '<div class="' . $prefix . 'title">' . $this->name($item) . '</div>';
 
-        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->generate_shortcode($this->id($item), $this->name($item))) . '\')">' . __('Shortcode', $this->textdomain) . '</div>';
-        $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->applink_html($item)) . '\')">' . __('HTML Tag', $this->textdomain) . '</div>';
+        // $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->generate_shortcode($this->id($item), $this->name($item))) . '\')">' . __('Shortcode', $this->textdomain) . '</div>';
+        // $html .= '<div class="wpal-btn button button-small" onClick=" send_to_parent_editor(\'' . rawurlencode($this->applink_html($item)) . '\')">' . __('HTML Tag', $this->textdomain) . '</div>';
 
+        $html .= '<div class="wpal-btn button button-small" onClick=" showCode(\'' . rawurlencode($this->generate_shortcode($this->id($item), $this->name($item))) . '\')">' . __('Shortcode', $this->textdomain) . '</div>';
+        $html .= '<div class="wpal-btn button button-small" onClick=" showCode(\'' . rawurlencode($this->applink_html($item)) . '\')">' . __('HTML Tag', $this->textdomain) . '</div>';
+        
         $html .= '</div>';
       }
       $html .= '</div>';

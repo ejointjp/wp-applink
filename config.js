@@ -7,7 +7,8 @@ const imageminSvgo = require('imagemin-svgo')
 module.exports = {
   dir: {
     src: 'src',
-    dest: 'wp-applink'
+    dest: 'wp-applink',
+    dist: 'wp-applink'
   },
   proxy: '', // PHP使う場合バーチャルホストのURL
 
