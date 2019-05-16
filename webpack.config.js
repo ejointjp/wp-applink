@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
+// const CompressionPlugin = require('compression-webpack-plugin')
 
 // postcss plugins
 const postCssCombineDuplicatedSelectors = require('postcss-combine-duplicated-selectors')
@@ -34,9 +34,9 @@ const options = config.options
 let plugins = devMode ? [
 
 ] : [
-  new CompressionPlugin({
-    cache: true
-  })
+  // new CompressionPlugin({
+  //   cache: true
+  // })
 ]
 
 const commonPlugins = [
