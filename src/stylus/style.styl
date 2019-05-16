@@ -1,12 +1,11 @@
 $wpal-background ?= #f8f8f8
-$wpal-breakpoint ?= 750px
+$wpal-breakpoint ?= 768px
 $wpal-btn-color ?= #333
 $wpal-btn-radius ?= 8px
-$wpal-content-margin ?= 6px
 $wpal-datas-color ?= #777
-$wpal-font-size ?= 15px
-$wpal-font-size-lg ?= 16px
-$wpal-icon-width ?= 60px
+$wpal-font-size ?= 0.9rem
+$wpal-font-size-lg ?= 1rem
+$wpal-icon-width ?= 72px
 $wpal-icon-width-lg ?= 88px
 $wpal-margin ?= 24px
 $wpal-padding ?= 16px
@@ -50,12 +49,12 @@ $wpal-radius ?= 16px
 
   &-title
     font-weight: bold
-    margin-bottom: $wpal-content-margin
+    margin-bottom: 0.375rem
 
   &-datas
-    font-size: 0.85em
+    font-size: 0.8em
     color: $wpal-datas-color
-    margin-bottom: $wpal-content-margin + 4px
+    margin-bottom: 0.6em
 
   &-data
     display: inline-block
@@ -69,12 +68,14 @@ $wpal-radius ?= 16px
     line-height: 1
     padding: 0.4375em 1em 0.5em
     transition: 0.2s
-    font-size: 0.9em
+    font-size: 0.95em
     border: 2px solid $wpal-btn-color
+    text-decoration: none
 
     &:hover
       background: transparent
       color: $wpal-btn-color
+      text-decoration: none
 
   &-screenshots
     clear: both
@@ -83,7 +84,7 @@ $wpal-radius ?= 16px
 
     figcaption
       font-weight: bold
-      font-size: 0.85em
+      font-size: 0.9em
       margin: 12px 1% 8px
       color: #666
 

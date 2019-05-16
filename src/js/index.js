@@ -1,21 +1,25 @@
 const request = require('superagent')
 
 const _locale_    = document.getElementsByTagName('html')[0].getAttribute('lang')
-const $status     = document.getElementById('wpal-status')
-const $select     = document.getElementById('wpal-select')
-const $media      = document.getElementById('wpal-media')
+const $code       = document.getElementById('wpal-code')
 const $entity     = document.getElementById('wpal-entity')
-const $screenshot = document.getElementById('wpal-screenshot')
 const $limit      = document.getElementById('wpal-limit')
-const $term       = document.getElementById('wpal-term')
-const $result     = document.getElementById('wpal-result')
 const $loader     = document.getElementById('wpal-loader')
+const $media      = document.getElementById('wpal-media')
+const $result     = document.getElementById('wpal-result')
+const $screenshot = document.getElementById('wpal-screenshot')
+const $select     = document.getElementById('wpal-select')
+const $status     = document.getElementById('wpal-status')
 const $submit     = document.getElementById('wpal-submit')
+const $term       = document.getElementById('wpal-term')
 const $token      = document.getElementById('wpal-token')
+const $buttons    = document.getElementsByClassName('wpal-btn')
 
+console.log($buttons)
 setValue()
 
 $submit.addEventListener('click', () => {
+  $code.style.display = 'none'
   ajaxSend()
 })
 
@@ -50,6 +54,7 @@ function ajaxSend () {
 
   if(term === '') {
     $loader.style.display = 'none'
+
     if(_locale_ === 'en' || _locale_ === 'en_US') {
       $result.textContent = 'Please Enter search keywords.'
     } else {

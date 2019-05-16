@@ -58,6 +58,8 @@ $limit = array(1, 3, 5, 10, 20, 30, 50, 100);
   <div id="wpal-submit" class="wpal-submit button button-primary button-large"><?php echo __('Search'); ?></div>
 </div>
 
+<div id="wpal-code" class="wpal-code"><div class="wpal-code-label"><?php echo __('Copy the code below and paste it', 'wp-applink'); ?></div><textarea id="wpal-code-result" class="wpal-code-result"></textarea></div>
+
 <div id="wpal-loader" class="wpal-loader">
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
@@ -81,11 +83,3 @@ $limit = array(1, 3, 5, 10, 20, 30, 50, 100);
 
 <div id="wpal-status"></div>
 <div id="wpal-result" class="wpal-result"></div>
-
-<script>
-function send_to_parent_editor(str) {
-	var win = parent.window.dialogArguments || opener || parent || top;
-	console.log(parent.window.dialogArguments || opener || parent ||top);
-	win.send_to_editor(decodeURIComponent(str));
-}
-</script>

@@ -59,7 +59,6 @@ module.exports = {
 
   entry: {
     'bundle': path.resolve(__dirname, dir.src, 'js', 'index.js'),
-    'bundle2': path.resolve(__dirname, dir.src, 'js', 'index2.js'),
     'assets/css/style.css': path.resolve(__dirname, dir.src, 'stylus', 'style.styl'),
     'assets/css/admin.css': path.resolve(__dirname, dir.src, 'stylus', 'admin.styl')
   },

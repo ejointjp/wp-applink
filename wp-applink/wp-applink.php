@@ -3,7 +3,7 @@
 Plugin Name: WP Applink
 Plugin URI: http://e-joint.jp/works/wp-applink/
 Description: It is a WordPress plugin that generates iTunes PHG affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
-Version: 0.3.2
+Version: 0.4.0
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 Text Domain: wp-applink
@@ -59,10 +59,13 @@ class WP_Applink {
     add_action('admin_menu', array($this, 'add_meta_box'));
     add_action('admin_menu', array($this, 'add_plugin_page'));
     add_action('admin_init', array($this, 'page_init'));
+    add_action('admin_footer', array($this, 'scripts'));
     add_action('admin_enqueue_scripts', array($this, 'add_admin_js_css'));
     add_action('wp_enqueue_scripts', array($this, 'add_styles'));
     add_action('wp_ajax_wpal_ajax_search', array($this, 'wpal_ajax_search'));
     add_action('wp_ajax_nopriv_wpal_ajax_search', array($this, 'wpal_ajax_search'));
+
+
     add_shortcode('applink', array($this, 'wpal_shortcode'));
 
     // Class Lookupのインスタンスを生成
@@ -237,7 +240,7 @@ class WP_Applink {
 
   public function add_admin_js_css() {
     wp_enqueue_style('wpal', plugins_url('assets/css/admin.css', __FILE__), array(), $this->version);
-    wp_enqueue_script('wpal', plugins_url('assets/js/bundle.js', __FILE__), array('jquery'), $this->version, true);
+    wp_enqueue_script('wpal', plugins_url('assets/js/bundle.js', __FILE__), array(), $this->version, true);
   }
 
   // スタイルシートの追加
@@ -299,6 +302,20 @@ class WP_Applink {
       }
     }
     die();
+  }
+
+  // 検索結果のボタンを押したときの関数
+  public function scripts() { ?>
+    <script>
+    function showCode (str) {
+      var $code = document.getElementById('wpal-code')
+      var $codeResult = document.getElementById('wpal-code-result')
+      $code.style.display = 'block'
+      $codeResult.value = decodeURIComponent(str)
+      $codeResult.value = $codeResult.value.trim()
+      $codeResult.select()
+    }
+    </script><?php
   }
 
   // ショートコードの定義

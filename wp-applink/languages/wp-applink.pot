@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Applink\n"
-"POT-Creation-Date: 2018-04-17 13:45+0900\n"
+"POT-Creation-Date: 2019-05-16 13:29+0900\n"
 "PO-Revision-Date: 2017-02-10 12:19+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: class/class-itunes.php:379
+#: class/class-itunes.php:380
 msgid "Free"
 msgstr ""
 
-#: class/class-itunes.php:388
+#: class/class-itunes.php:389
 msgid "iOS Universal"
 msgstr ""
 
@@ -32,11 +32,11 @@ msgstr ""
 msgid "Link not found."
 msgstr ""
 
-#: class/class-search.php:36
+#: class/class-search.php:39
 msgid "Shortcode"
 msgstr ""
 
-#: class/class-search.php:37
+#: class/class-search.php:40
 msgid "HTML Tag"
 msgstr ""
 
@@ -96,71 +96,75 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: wp-applink.php:143
+#: views/view-metabox.php:62
+msgid "Copy the code below and paste it"
+msgstr ""
+
+#: wp-applink.php:147
 msgid "Please read this document for setting options."
 msgstr ""
 
-#: wp-applink.php:144
+#: wp-applink.php:148
 msgid "Read the Document"
 msgstr ""
 
-#: wp-applink.php:152
+#: wp-applink.php:156
 msgid "PHG Token"
 msgstr ""
 
-#: wp-applink.php:153
+#: wp-applink.php:157
 msgid "Do not use plugin's CSS"
 msgstr ""
 
-#: wp-applink.php:154
+#: wp-applink.php:158
 msgid "Country"
 msgstr ""
 
-#: wp-applink.php:155
+#: wp-applink.php:159
 msgid "Cache limit"
 msgstr ""
 
-#: wp-applink.php:156
+#: wp-applink.php:160
 msgid "Post type to use"
 msgstr ""
 
-#: wp-applink.php:157
+#: wp-applink.php:161
 msgid "Clear Cache"
 msgstr ""
 
-#: wp-applink.php:173
+#: wp-applink.php:177
 msgid "Please enter a token."
 msgstr ""
 
-#: wp-applink.php:192
+#: wp-applink.php:196
 msgid "Japan(Default)"
 msgstr ""
 
-#: wp-applink.php:193
+#: wp-applink.php:197
 msgid "United States"
 msgstr ""
 
-#: wp-applink.php:199
+#: wp-applink.php:203
 msgid "1 day"
 msgstr ""
 
-#: wp-applink.php:200
+#: wp-applink.php:204
 msgid "1 week"
 msgstr ""
 
-#: wp-applink.php:201
+#: wp-applink.php:205
 msgid "1 month(Default)"
 msgstr ""
 
-#: wp-applink.php:202
+#: wp-applink.php:206
 msgid "Indefinitely"
 msgstr ""
 
-#: wp-applink.php:293
+#: wp-applink.php:297
 msgid "Search result"
 msgstr ""
 
-#: wp-applink.php:293
+#: wp-applink.php:297
 msgid "items."
 msgstr ""
 
