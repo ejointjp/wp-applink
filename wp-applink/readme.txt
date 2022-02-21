@@ -3,8 +3,8 @@ Contributors: ejointjp
 Donate link:
 Tags: apps, app, link, iTunes, affiliate, shortcode, apple, phg
 Requires at least: 4.0
-Tested up to: 5.2.0
-Stable tag: 0.4.0
+Tested up to: 5.9.1
+Stable tag: 0.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,9 @@ WP Applinkに関する疑問や問題がありましたら､以下のプラグ�
 4. Setting Sample.
 
 == Changelog ==
+
+= 0.4.1 =
+* Bug fix.
 
 = 0.4.0 =
 * Support for Gutenberg block editor.

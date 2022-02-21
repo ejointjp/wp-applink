@@ -3,7 +3,7 @@
 Plugin Name: WP Applink
 Plugin URI: http://e-joint.jp/works/wp-applink/
 Description: It is a WordPress plugin that generates iTunes PHG affiliate links such as iPhone, iPad, Mac apps and music, movies etc.
-Version: 0.4.0
+Version: 0.4.1
 Author: e-JOINT.jp
 Author URI: http://e-joint.jp
 Text Domain: wp-applink
@@ -33,7 +33,8 @@ include_once dirname(__FILE__) . '/class/class-search.php';
 define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CACHE_DIR', MY_PLUGIN_DIR . 'cache/');
 
-class WP_Applink {
+class WP_Applink
+{
   // PHGトークン
   const PHG_TOKEN = '11l64V';
   // Class Lookupのインスタンス
@@ -43,11 +44,12 @@ class WP_Applink {
   private $textdomain;
   private $domainpath;
 
-  public function __construct() {
+  public function __construct()
+  {
 
     $this->set_datas();
 
-    if(function_exists('register_activation_hook')) {
+    if (function_exists('register_activation_hook')) {
       register_activation_hook(__FILE__, array($this, 'register_activation'));
     }
 
@@ -73,10 +75,9 @@ class WP_Applink {
   }
 
   // プラグイン有効時に実行
-  public function register_activation() {
-
-    if(!$this->options) {
-
+  public function register_activation()
+  {
+    if (!$this->options) {
       $default_options = array(
         'token' => self::PHG_TOKEN,
         'cache' => '1 month ago',
@@ -87,7 +88,8 @@ class WP_Applink {
     }
   }
 
-  private function set_datas() {
+  private function set_datas()
+  {
     $datas = get_file_data(__FILE__, array(
       'version' => 'Version',
       'textdomain' => 'Text Domain',
@@ -99,24 +101,27 @@ class WP_Applink {
     $this->domainpath = $datas['domainpath'];
   }
 
-  public function load_plugin_textdomain() {
+  public function load_plugin_textdomain()
+  {
     load_plugin_textdomain($this->textdomain, false, dirname(plugin_basename(__FILE__)) . $this->domainpath);
   }
 
   // metaboxを表示させる
-  public function add_meta_box() {
+  public function add_meta_box()
+  {
     $post_types = $this->get_post_types();
 
-    foreach($post_types as $post_type) {
-      if($this->is_post_type_enabled($post_type)) {
+    foreach ($post_types as $post_type) {
+      if ($this->is_post_type_enabled($post_type)) {
         add_meta_box('wpal', 'WP Applink', array($this, 'create_meta_box'), $post_type, 'side', 'high');
       }
     }
   }
 
   // 管理画面に設定画面を追加
-  public function add_plugin_page() {
-    add_options_page (
+  public function add_plugin_page()
+  {
+    add_options_page(
       'WP Applink',
       'WP Applink',
       'manage_options',
@@ -125,31 +130,36 @@ class WP_Applink {
     );
   }
 
-  public function create_admin_page() {
-    ?><div class="wrap">
+  public function create_admin_page()
+  {
+?>
+    <div class="wrap">
       <h2>WP Applink</h2>
 
       <?php
       global $parent_file;
-      if ( $parent_file != 'options-general.php') {
+      if ($parent_file != 'options-general.php') {
         require(ABSPATH . 'wp-admin/options-head.php');
       }
       ?>
 
       <form method="post" action="options.php">
-      <?php
+        <?php
         settings_fields('wpal-setting');
         do_settings_sections('wpal-setting');
         submit_button();
-      ?>
+        ?>
       </form>
 
       <p><?php echo __('Please read this document for setting options.', $this->textdomain); ?></p>
       <p><a class="button" href="http://e-joint.jp/works/wp-applink/"><?php echo __('Read the Document', $this->textdomain); ?></a></p>
-    </div><!--wrap--><?php
+    </div>
+    <!--wrap-->
+  <?php
   }
 
-  public function page_init() {
+  public function page_init()
+  {
     register_setting('wpal-setting', 'wpal-setting', array($this, 'sanitize'));
     add_settings_section('wpal-setting-section-id', '', '', 'wpal-setting');
 
@@ -161,7 +171,8 @@ class WP_Applink {
     add_settings_field('clear-cache', __('Clear Cache', $this->textdomain), array($this, 'clear_cache_callback'), 'wpal-setting', 'wpal-setting-section-id');
   }
 
-  public function sanitize($input) {
+  public function sanitize($input)
+  {
     $new_input = array();
 
     $new_input['nocss'] = $input['nocss'];
@@ -170,9 +181,8 @@ class WP_Applink {
     $new_input['post-type'] = $input['post-type'];
     $new_input['clear-cache'] = $input['clear-cache'];
 
-    if(isset($input['token']) && trim($input['token']) !== '') {
+    if (isset($input['token']) && trim($input['token']) !== '') {
       $new_input['token'] = sanitize_text_field($input['token']);
-
     } else {
       add_settings_error('wpal-setting', 'token', __('Please enter a token.', $this->textdomain));
       // 値をDBの設定値に戻す
@@ -181,36 +191,47 @@ class WP_Applink {
     return $new_input;
   }
 
-  public function token_callback() {
+  public function token_callback()
+  {
     $token = isset($this->options['token']) ? $this->options['token'] : '';
-    ?><input type="text" name="wpal-setting[token]" size="30" value="<?php echo esc_attr($token); ?>"><?php
-  }
+  ?>
+    <input type="text" name="wpal-setting[token]" size="30" value="<?php echo esc_attr($token); ?>">
+  <?php }
 
-  public function nocss_callback() {
+  public function nocss_callback()
+  {
     $checked = isset($this->options['nocss']) ? checked($this->options['nocss'], 1, false) : '';
-    ?><input type="checkbox" id="nocss" name="wpal-setting[nocss]" value="1"<?php echo $checked; ?>><?php
+  ?><input type="checkbox" id="nocss" name="wpal-setting[nocss]" value="1" <?php echo $checked; ?>>
+
+  <?php
+  }
+  public function country_callback()
+  {
+  ?>
+    <select name="wpal-setting[country]">
+      <?php $country = array_key_exists('country', $this->options) ? $this->options['country'] : ''; ?>
+      <option value="ja" <?php selected($country, 'ja'); ?>><?php echo __('Japan(Default)', $this->textdomain); ?></option>
+      <option value="us" <?php selected($country, 'us'); ?>><?php echo __('United States', $this->textdomain); ?></option>
+    </select>
+  <?php
   }
 
-  public function country_callback() {
-    ?><select name="wpal-setting[country]">
-      <option value="ja"<?php selected($this->options['country'], 'ja'); ?>><?php echo __('Japan(Default)', $this->textdomain); ?></option>
-      <option value="us"<?php selected($this->options['country'], 'us'); ?>><?php echo __('United States', $this->textdomain); ?></option>
-      </select><?php
+  public function cache_callback()
+  {
+  ?><select name="wpal-setting[cache]">
+      <option value="1 day ago" <?php selected($this->options['cache'], '1 day ago'); ?>><?php echo __('1 day', $this->textdomain); ?></option>
+      <option value="1 week ago" <?php selected($this->options['cache'], '1 week ago'); ?>><?php echo __('1 week', $this->textdomain); ?></option>
+      <option value="1 month ago" <?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month(Default)', $this->textdomain); ?></option>
+      <option value="indefinitely" <?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', $this->textdomain); ?></option>
+    </select>
+  <?php
   }
 
-  public function cache_callback() {
-    ?><select name="wpal-setting[cache]">
-      <option value="1 day ago"<?php selected($this->options['cache'], '1 day ago'); ?>><?php echo __('1 day', $this->textdomain); ?></option>
-      <option value ="1 week ago"<?php selected($this->options['cache'], '1 week ago'); ?>><?php echo __('1 week', $this->textdomain); ?></option>
-      <option value ="1 month ago"<?php selected($this->options['cache'], '1 month ago'); ?>><?php echo __('1 month(Default)', $this->textdomain); ?></option>
-      <option value ="indefinitely"<?php selected($this->options['cache'], 'indefinitely'); ?>><?php echo __('Indefinitely', $this->textdomain); ?></option>
-      </select><?php
-  }
-
-  public function post_type_callback() {
+  public function post_type_callback()
+  {
     $post_types = $this->get_post_types();
 
-    foreach($post_types as $post_type) {
+    foreach ($post_types as $post_type) {
       $object = get_post_type_object($post_type);
       $label = $object->label;
       $checked = $this->is_post_type_enabled($post_type) ? 1 : 0;
@@ -219,42 +240,50 @@ class WP_Applink {
     }
   }
 
-  public function clear_cache_callback() {
-    if($options['clear-cache']) {
+  public function clear_cache_callback()
+  {
+
+    if (array_key_exists('clear-cache', $this->options) && $this->options['clear-cache']) {
       $this->clear_cache();
     }
-    ?><input type="checkbox" name="wpal-setting[clear-cache]" value="1"><?php
+  ?><input type="checkbox" name="wpal-setting[clear-cache]" value="1">
+  <?php
   }
 
-  public function clear_cache() {
+  public function clear_cache()
+  {
     date_default_timezone_set('Asia/Tokyo');
     $cachefiles = scandir(CACHE_DIR);
 
-    foreach($cachefiles as $val) {
+    foreach ($cachefiles as $val) {
       $file = CACHE_DIR . $val;
-      if(!is_file($file)) continue;
+      if (!is_file($file)) continue;
       // chmod($file, 0666);
       unlink($file);
     }
   }
 
-  public function add_admin_js_css() {
+  public function add_admin_js_css()
+  {
     wp_enqueue_style('wpal', plugins_url('assets/css/admin.css', __FILE__), array(), $this->version);
     wp_enqueue_script('wpal', plugins_url('assets/js/bundle.js', __FILE__), array(), $this->version, true);
   }
 
   // スタイルシートの追加
-  public function add_styles() {
-    if(!isset($this->options['nocss']) || (isset($this->options['nocss']) && !$this->options['nocss'])) {
+  public function add_styles()
+  {
+    if (!isset($this->options['nocss']) || (isset($this->options['nocss']) && !$this->options['nocss'])) {
       wp_enqueue_style('wpal', plugins_url('assets/css/style.css', __FILE__), array(), $this->version);
     }
   }
 
-  public function create_meta_box() {
+  public function create_meta_box()
+  {
     include dirname(__FILE__) . '/views/view-metabox.php';
   }
 
-  private function get_post_types() {
+  private function get_post_types()
+  {
     $args = array(
       'public'   => true
     );
@@ -263,28 +292,29 @@ class WP_Applink {
     $post_types = get_post_types($args, $output, $operator);
 
     // 配列からattachmentを削除
-    if(($key = array_search('attachment', $post_types)) !== false) {
+    if (($key = array_search('attachment', $post_types)) !== false) {
       unset($post_types[$key]);
     }
 
     return $post_types;
   }
 
-  private function is_post_type_enabled($post_type) {
+  private function is_post_type_enabled($post_type)
+  {
     $post_types = $this->options['post-type'];
-    if(is_null($post_types)) {
+    if (is_null($post_types)) {
       return true;
-
     } else {
       return array_search($post_type, $post_types) !== false;
     }
   }
 
-  public function wpal_ajax_search() {
+  public function wpal_ajax_search()
+  {
 
     $search = new WP_Applink_Search();
 
-    if(isset($_GET)) {
+    if (isset($_GET)) {
       $search->add_query_param('term', esc_html(urlencode($_GET['term'])));
       $search->add_query_param('media', esc_html($_GET['media']));
       $search->add_query_param('entity', esc_html($_GET['entity']));
@@ -294,10 +324,10 @@ class WP_Applink {
 
       $search->setup_data();
 
-      printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', $this->textdomain), $search->search_result_count(), __('items.', $this->textdomain) ,$search->get_status());
+      printf('<p>%s <b>%s</b> %s（%s）</p>', __('Search result', $this->textdomain), $search->search_result_count(), __('items.', $this->textdomain), $search->get_status());
       echo $search->search_result_html();
 
-      if($search->get_status() === 'API') {
+      if ($search->get_status() === 'API') {
         $search->save_cache();
       }
     }
@@ -305,21 +335,24 @@ class WP_Applink {
   }
 
   // 検索結果のボタンを押したときの関数
-  public function scripts() { ?>
+  public function scripts()
+  { ?>
     <script>
-    function showCode (str) {
-      var $code = document.getElementById('wpal-code')
-      var $codeResult = document.getElementById('wpal-code-result')
-      $code.style.display = 'block'
-      $codeResult.value = decodeURIComponent(str)
-      $codeResult.value = $codeResult.value.trim()
-      $codeResult.select()
-    }
-    </script><?php
+      function showCode(str) {
+        var $code = document.getElementById('wpal-code')
+        var $codeResult = document.getElementById('wpal-code-result')
+        $code.style.display = 'block'
+        $codeResult.value = decodeURIComponent(str)
+        $codeResult.value = $codeResult.value.trim()
+        $codeResult.select()
+      }
+    </script>
+<?php
   }
 
   // ショートコードの定義
-  public function wpal_shortcode($atts) {
+  public function wpal_shortcode($atts)
+  {
     extract(shortcode_atts(array(
       'id' => null,
       'title' => null,
